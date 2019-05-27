@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2340ac64e39e884e841e37e30141369, type: 3}
+  m_Name: ItemDropTest
+  m_EditorClassIdentifier: 
+  dropObj: {fileID: 8391210235039551546, guid: 3ebeb180ea6a5e046884986da3a12834, type: 3}
+  amountOfWoodDrop: 20
+  amountOflightBulletDrop: 12
+  amountOfHeavyBulletDrop: 15
