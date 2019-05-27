@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerLootBase : MonoBehaviour
 {
+    //rördu dör du
     public float totalWood = 0;
     public float lightBullets = 0;
     public float heavyBullets = 0;

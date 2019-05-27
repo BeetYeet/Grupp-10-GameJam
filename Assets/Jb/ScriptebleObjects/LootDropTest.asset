@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2340ac64e39e884e841e37e30141369, type: 3}
-  m_Name: ItemDropTest
+  m_Script: {fileID: 11500000, guid: d5db1270d151028488a2b635973724cc, type: 3}
+  m_Name: LootDropTest
   m_EditorClassIdentifier: 
-  dropObj: {fileID: 8391210235039551546, guid: 3ebeb180ea6a5e046884986da3a12834, type: 3}
-  amountOfWoodDrop: 20
-  amountOflightBulletDrop: 12
-  amountOfHeavyBulletDrop: 15
+  dropObj: {fileID: 8391210235039551546, guid: 71fcb9b46ca6c3d4baa86fe7f616875a, type: 3}
+  amountOfWoodDrop: 12
+  amountOflightBulletDrop: 141
+  amountOfHeavyBulletDrop: 6
