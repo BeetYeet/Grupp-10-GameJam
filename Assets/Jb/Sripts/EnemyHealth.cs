@@ -14,8 +14,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
         health = scriptebleHealth.StartHealth;
     }
 
+
     public void DropItems()
     {
+        //rör du dör du
         var wood  = lootDropBase.amountOfWoodDrop;
         var lightBullets = lootDropBase.amountOflightBulletDrop;
         var heavyBullets = lootDropBase.amountOfHeavyBulletDrop;
@@ -32,6 +34,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
             amount = 1;
 
         health -= amount;
+        if (health <= 0)
+        {
+            OnDeath();
+        }
     }
     public void OnDeath()
     {
@@ -41,6 +47,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.P)) //Går att byta ut till typ "tar skada" eller "On death"
-            DropItems();
+            OnDeath();
     }
 }
