@@ -63,7 +63,6 @@ MonoBehaviour:
     woodGathered: 0
     lifeTime: 0
     distanceTravelled: 0
-    averageVelocity: 0
     shotsFired: 0
     totalShotDistance: 0
     maxShotDistance: 0
