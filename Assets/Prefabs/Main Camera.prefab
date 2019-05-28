@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3420981766140990620}
   - component: {fileID: 3420981766140990621}
   - component: {fileID: 3420981766140990594}
+  - component: {fileID: 1533032521}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -97,9 +98,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  shake: {fileID: 0}
   velocityWeight: 0.15
   velocitySmoothTime: 2
   forwardWeight: 0.4
   forwardSmoothTime: 0.8
   aimWeight: 0.2
   aimSmoothTime: 0.5
+--- !u!114 &1533032521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3420981766140990622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5566c35738392e49b9bac6b6f34cfb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycles: 4
+  baseFreq: 5
+  baseMagnitude: 1
+  cycleFreqMultiplier: 2.8935
+  cycleMagnitudeMultiplier: 0.3648
+  currentShake: 0
+  decayFactor: 0.95

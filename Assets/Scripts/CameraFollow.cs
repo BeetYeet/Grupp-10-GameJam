@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollow: MonoBehaviour
 {
 	public Transform target;
+	public CameraShake shake;
 
 	private Vector3 velocityOffset = Vector3.zero;
 	private Vector3 velocityOffsetTarget = Vector3.zero;
@@ -26,7 +27,7 @@ public class CameraFollow: MonoBehaviour
 
 	void Start()
 	{
-
+		shake = GetComponent<CameraShake>();
 	}
 
 	void LateUpdate()
@@ -38,7 +39,7 @@ public class CameraFollow: MonoBehaviour
 
 			Vector3 pos = velocityOffset + forwardOffset + aimOffset + target.position;
 			pos.z = -20f;
-			transform.position = pos;
+			transform.position = pos + new Vector3(shake.GetCurrentShake(564684), shake.GetCurrentShake( 886516 ), 0f );
 		}
 	}
 
