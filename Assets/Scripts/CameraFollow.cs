@@ -38,7 +38,7 @@ public class CameraFollow: MonoBehaviour
 
 			Vector3 pos = velocityOffset + forwardOffset + aimOffset + target.position;
 			pos.z = -20f;
-			transform.position = pos;
+			transform.localPosition = pos;
 		}
 	}
 
