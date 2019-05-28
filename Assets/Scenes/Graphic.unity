@@ -453,6 +453,26 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2118475914}
+    - target: {fileID: 2256308038558613877, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
+        type: 3}
+      propertyPath: m_HDR
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256308038558613877, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
+        type: 3}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256308038558613877, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
+        type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470517186666646093, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
+        type: 3}
+      propertyPath: orthographic size
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0463c1f790e0aa4f87461fabf2c1d8a, type: 3}
 --- !u!1001 &6245910384161406933
