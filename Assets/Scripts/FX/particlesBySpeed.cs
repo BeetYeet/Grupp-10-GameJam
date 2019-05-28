@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class particlesBySpeed : MonoBehaviour
 {
-    public PlayerController pc;
+    public ControlerBase pc;
     private ParticleSystem ps;
     private ParticleSystem.EmissionModule pse;
 

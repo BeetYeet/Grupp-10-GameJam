@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Vparticles : MonoBehaviour
 {
-    public PlayerController pc;
+    public ControlerBase pc;
     public float degrees = 90;
     private ParticleSystem ps;
     private ParticleSystem.EmissionModule pse;

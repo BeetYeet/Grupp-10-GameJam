@@ -13,7 +13,7 @@ public class Aimable: MonoBehaviour
 			return currentCooldown <= 0f;
 		}
 	}
-	public PlayerController player;
+	public Transform hull;
 	Quaternion targetRotation = Quaternion.identity;
 
 	float cannonVelocity = 0f;
@@ -24,7 +24,7 @@ public class Aimable: MonoBehaviour
 	{
 		minangle.Normalize();
 		maxangle.Normalize();
-		targetRotation = Quaternion.LookRotation( Vector3.forward, player.hull.TransformVector( Vector2.Lerp( minangle, maxangle, 0.5f ) ) );
+		targetRotation = Quaternion.LookRotation( Vector3.forward, hull.TransformVector( Vector2.Lerp( minangle, maxangle, 0.5f ) ) );
 		transform.rotation = targetRotation;
 	}
 
@@ -42,8 +42,8 @@ public class Aimable: MonoBehaviour
 	public bool TryAim( Vector2 direction )//returns true if it could aim there
 	{
 		direction.Normalize();
-		float toMin = Vector2.SignedAngle( direction, player.hull.TransformVector( minangle ) );
-		float toMax = Vector2.SignedAngle( direction, player.hull.TransformVector( maxangle ) );
+		float toMin = Vector2.SignedAngle( direction, hull.TransformVector( minangle ) );
+		float toMax = Vector2.SignedAngle( direction, hull.TransformVector( maxangle ) );
 
 
 		Vector2 use = Vector2.zero;
@@ -52,11 +52,11 @@ public class Aimable: MonoBehaviour
 			//cant aim there
 			if ( Mathf.Abs( toMin ) < Mathf.Abs( toMax ) )
 			{
-				use = player.hull.TransformVector( minangle );
+				use = hull.TransformVector( minangle );
 			}
 			else
 			{
-				use = player.hull.TransformVector( maxangle );
+				use = hull.TransformVector( maxangle );
 			}
 		}
 		else
@@ -84,11 +84,11 @@ public class Aimable: MonoBehaviour
 	{
 		{
 			Gizmos.color = Color.green;
-			Gizmos.DrawLine( transform.position, transform.position + player.hull.TransformVector( minangle ).normalized );
+			Gizmos.DrawLine( transform.position, transform.position + hull.TransformVector( minangle ).normalized );
 		}
 		{
 			Gizmos.color = Color.red;
-			Gizmos.DrawLine( transform.position, transform.position + player.hull.TransformVector( maxangle ).normalized );
+			Gizmos.DrawLine( transform.position, transform.position + hull.TransformVector( maxangle ).normalized );
 		}
 	}
 

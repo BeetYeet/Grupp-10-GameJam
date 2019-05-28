@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController: MonoBehaviour
+public class PlayerController: ControlerBase
 {
 	public CameraFollow cameraFollow;
 	public static PlayerController curr;
@@ -16,12 +16,8 @@ public class PlayerController: MonoBehaviour
 	public float turnAnimMultiplier = 1f;
 	public Transform hull;
 
-	[HideInInspector]
-	public float forwardVelocity = 0f;
 	private float forwardAcceleration = 0f;
 
-	[HideInInspector]
-	public float rotationVelocity = 0f;
 	private float rotationAcceleration = 0f;
 
 	private float turnAnim = 0f;

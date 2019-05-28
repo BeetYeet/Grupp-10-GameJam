@@ -3,7 +3,9 @@ guid: eb06e0b88dff5c4498bb991e3d682c3c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cannonShellPrefab: {fileID: 8854136876744933129, guid: af4af5df7d81b834aa2b88d96b7a203f,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
