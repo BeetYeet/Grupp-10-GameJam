@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerController: MonoBehaviour
 {
-    public CameraFollow cameraFollow;
+	public CameraFollow cameraFollow;
 
-    public float movementSpeed = 1f;
+	public float movementSpeed = 1f;
 	public float turnSpeed = 10f;
 	public float speedChangeTime = 1f;
 	public float turnChangeTime = 1f;
@@ -39,15 +39,15 @@ public class PlayerController: MonoBehaviour
 			hull.localEulerAngles = new Vector3( 0f, 0f, -turnAnim );
 		}
 		forwardVelocity = Mathf.SmoothDamp( forwardVelocity, Input.GetAxis( "Vertical" ) < 0f ? movementSpeed * Input.GetAxis( "Vertical" ) * 0.02f : movementSpeed * Input.GetAxis( "Vertical" ), ref forwardAcceleration, speedChangeTime );
-		transform.position += transform.up * forwardVelocity * Time.deltaTime;
-
+		transform.localPosition += transform.up * forwardVelocity * Time.deltaTime;
+		GameController.scoreTracker.stats.distanceTravelled += Mathf.Abs( forwardVelocity * Time.deltaTime );
 		{
 			cameraFollow.UpdateVelocitiyOffset( transform.up * forwardVelocity );
 			cameraFollow.UpdateForwardOffset( transform.up );
 			Vector3 pos = Input.mousePosition;
 			pos.z = 0f;
 			pos = Camera.main.ScreenToWorldPoint( pos );
-			cameraFollow.UpdateAimPos(pos);
+			cameraFollow.UpdateAimPos( pos );
 		}
 	}
 }
