@@ -1459,6 +1459,18 @@ MonoBehaviour:
   totalWood: 0
   lightBullets: 0
   heavyBullets: 0
+--- !u!114 &2049272616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049272614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78e591dec5a005479d3a1f64174c988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &2049272620
 Rigidbody:
   m_ObjectHideFlags: 0
