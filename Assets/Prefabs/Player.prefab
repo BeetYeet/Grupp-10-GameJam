@@ -14421,6 +14421,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7107408037919031552}
   - component: {fileID: 7107408037919031555}
+  - component: {fileID: 6547016359660653387}
+  - component: {fileID: -3420199000938063584}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -14466,6 +14468,34 @@ MonoBehaviour:
   hull: {fileID: 7107408038634213285}
   forwardVelocity: 1.7427858e-12
   rotationVelocity: 4e-45
+--- !u!114 &6547016359660653387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107408037919031554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ea044f28ebc7340abe3d389f6c4985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalWood: 0
+  lightBullets: 0
+  heavyBullets: 0
+--- !u!114 &-3420199000938063584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107408037919031554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b78e591dec5a005479d3a1f64174c988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptebleHealth: {fileID: 0}
 --- !u!1 &7107408038634213286
 GameObject:
   m_ObjectHideFlags: 0
