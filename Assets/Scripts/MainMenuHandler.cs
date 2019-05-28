@@ -42,6 +42,8 @@ public class MainMenuHandler : MonoBehaviour
 	public void StartGame()
 	{
 		Debug.Log("started game!");
+		int i = Random.Range(0, audioClips.Count);
+		Playsound.i.SFXcSource.PlayOneShot(audioClips[i]);
 		SceneManager.LoadScene(1);
 	}
 
@@ -54,6 +56,8 @@ public class MainMenuHandler : MonoBehaviour
 	{
 		MainMenuPanel.SetActive(false);
 		DifficultyPanel.SetActive(true);
+		int i = Random.Range(0, audioClips.Count);
+		Playsound.i.SFXcSource.PlayOneShot(audioClips[i]);
 	}
 
 	public void DifficultyEasy()
@@ -61,24 +65,32 @@ public class MainMenuHandler : MonoBehaviour
 		difficulty = Difficulty.easy;
 		MainMenuPanel.SetActive(true);
 		DifficultyPanel.SetActive(false);
+		int i = Random.Range(0, audioClips.Count);
+		Playsound.i.SFXcSource.PlayOneShot(audioClips[i]);
 	}
 	public void DifficultyMedium()
 	{
 		difficulty = Difficulty.medium;
 		MainMenuPanel.SetActive(true);
 		DifficultyPanel.SetActive(false);
+		int i = Random.Range(0, audioClips.Count);
+		Playsound.i.SFXcSource.PlayOneShot(audioClips[i]);
 	}
 	public void DifficultyHard()
 	{
 		difficulty = Difficulty.hard;
 		MainMenuPanel.SetActive(true);
 		DifficultyPanel.SetActive(false);
+		int i = Random.Range(0, audioClips.Count);
+		Playsound.i.SFXcSource.PlayOneShot(audioClips[i]);
 	}
 	public void DifficultyImpossible()
 	{
 		difficulty = Difficulty.impossible;
 		MainMenuPanel.SetActive(true);
 		DifficultyPanel.SetActive(false);
+		int i = Random.Range(0, audioClips.Count);
+		Playsound.i.SFXcSource.PlayOneShot(audioClips[i]);
 	}
 	#endregion
 

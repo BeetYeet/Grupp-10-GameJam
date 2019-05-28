@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.08627451}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.2901961}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3957,6 +3957,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficulty: 0
+  audioClips:
+  - {fileID: 8300000, guid: 3cd8d236bd197f7498ed1765f48b0750, type: 3}
+  - {fileID: 8300000, guid: 5a209293a7d73ef47bc351e4e505e2df, type: 3}
+  - {fileID: 8300000, guid: 4d2fc9481b3db1e469216000fd11752c, type: 3}
   DifficultyText: {fileID: 1111933695}
   MainMenuPanel: {fileID: 1300441337}
   DifficultyPanel: {fileID: 758007804}
@@ -4479,7 +4483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc710f12bb51f542afa2bea3681bd9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips: []
   musicSource: {fileID: 2040826776}
   SFXcSource: {fileID: 2040826775}
 --- !u!1 &2070129769
