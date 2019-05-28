@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerController: MonoBehaviour
 {
-	public float movementSpeed = 1f;
+    public CameraFollow cameraFollow;
+
+    public float movementSpeed = 1f;
 	public float turnSpeed = 10f;
 	public float speedChangeTime = 1f;
 	public float turnChangeTime = 1f;
@@ -40,13 +42,12 @@ public class PlayerController: MonoBehaviour
 		transform.position += transform.up * forwardVelocity * Time.deltaTime;
 
 		{
-			CameraFollow _ = Camera.main.GetComponent<CameraFollow>();
-			_.UpdateVelocitiyOffset( transform.up * forwardVelocity );
-			_.UpdateForwardOffset( transform.up );
+			cameraFollow.UpdateVelocitiyOffset( transform.up * forwardVelocity );
+			cameraFollow.UpdateForwardOffset( transform.up );
 			Vector3 pos = Input.mousePosition;
 			pos.z = 0f;
 			pos = Camera.main.ScreenToWorldPoint( pos );
-			_.UpdateAimPos(pos);
+			cameraFollow.UpdateAimPos(pos);
 		}
 	}
 }
