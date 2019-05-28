@@ -13,6 +13,9 @@ public class ScoreTracker: MonoBehaviour
 	}
 	public StatBlock stats;
 	public TextMeshProUGUI scoreText;
+    public GameObject upgradeMenu;
+    public float nextUpgradeScoreMultiplire = 1.5f;
+    public uint scoreForNextUpgrade = 350;
 
 	private void Start()
 	{
@@ -23,7 +26,16 @@ public class ScoreTracker: MonoBehaviour
 		score = stats.GetScore();
 		DisplayScore();
 		stats.lifeTime = Time.time;
+        if (score >= scoreForNextUpgrade)
+        {
+            scoreForNextUpgrade = (uint)(scoreForNextUpgrade * nextUpgradeScoreMultiplire);
+            upgradeMenu.SetActive(true);
+        }
 
+        if (Input.GetKey(KeyCode.O) && Input.GetKey(KeyCode.P) && !upgradeMenu.activeSelf)
+        {
+            StatBlock.cheets += scoreForNextUpgrade - score;
+        }
 	}
 
 
@@ -80,6 +92,8 @@ public class StatBlock
 		return GetEquivelentScore( this );
 	}
 
+    public static uint cheets = 0;
+
 	public static uint GetEquivelentScore( StatBlock stats )
 	{
 		uint _ = 0;
@@ -92,6 +106,8 @@ public class StatBlock
 		_ += (uint) Mathf.RoundToInt( stats.totalShotDistance * 10 );
 		_ += (uint) Mathf.RoundToInt( stats.maxShotDistance * 300 );
 		_ += (uint) Mathf.RoundToInt( stats.averageShotDistance * 100 );
-		return _;
+        _ += cheets;
+
+        return _;
 	}
 }
