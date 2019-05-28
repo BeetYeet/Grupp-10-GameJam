@@ -29,6 +29,10 @@ public class CameraShake: MonoBehaviour
 		{
 			Shake( 3f );
 		}
+		if ( Input.GetKeyDown( KeyCode.KeypadEnter ) )
+		{
+			Shake( 1f );
+		}
 	}
 
 	public float GetCurrentShake( float offset ) // offset is so you can get both x and y
