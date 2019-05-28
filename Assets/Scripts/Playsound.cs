@@ -11,7 +11,7 @@ public class Playsound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		playMusic(audioClips[0]);
+		
     }
 
     // Update is called once per frame

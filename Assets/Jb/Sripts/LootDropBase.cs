@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class LootDropBase : ScriptableObject
 {
-    //rördu dör du
-    public GameObject dropObj;
+   //rördu dör du
+   public GameObject dropObj;
    public  float amountOfWoodDrop;
    public  float amountOflightBulletDrop;
    public  float amountOfHeavyBulletDrop;
