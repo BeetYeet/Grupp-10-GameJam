@@ -36,7 +36,17 @@ public class PlayerController: MonoBehaviour
 			transform.localEulerAngles = new Vector3( 0f, 0f, rot );
 			hull.localEulerAngles = new Vector3( 0f, 0f, -turnAnim );
 		}
-		forwardVelocity = Mathf.SmoothDamp( forwardVelocity, Input.GetAxis( "Vertical" ) < 0f ? movementSpeed * Input.GetAxis( "Vertical" ) * 0.02f : movementSpeed * Input.GetAxis( "Vertical" ) , ref forwardAcceleration, speedChangeTime );
+		forwardVelocity = Mathf.SmoothDamp( forwardVelocity, Input.GetAxis( "Vertical" ) < 0f ? movementSpeed * Input.GetAxis( "Vertical" ) * 0.02f : movementSpeed * Input.GetAxis( "Vertical" ), ref forwardAcceleration, speedChangeTime );
 		transform.position += transform.up * forwardVelocity * Time.deltaTime;
+
+		{
+			CameraFollow _ = Camera.main.GetComponent<CameraFollow>();
+			_.UpdateVelocitiyOffset( transform.up * forwardVelocity );
+			_.UpdateForwardOffset( transform.up );
+			Vector3 pos = Input.mousePosition;
+			pos.z = 0f;
+			pos = Camera.main.ScreenToWorldPoint( pos );
+			_.UpdateAimPos(pos);
+		}
 	}
 }

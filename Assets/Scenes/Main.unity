@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &1206306875 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 992498986425964655, guid: 45f2e0b499b653846a502f16c91db957,
+    type: 3}
+  m_PrefabInstance: {fileID: 2100981926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1578391245
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +137,7 @@ GameObject:
   - component: {fileID: 1578391248}
   - component: {fileID: 1578391247}
   - component: {fileID: 1578391246}
+  - component: {fileID: 1578391249}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -173,7 +180,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 17.453442
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -203,6 +210,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1578391249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578391245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf1cf4a451782c4daef44f5d83ad19c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1206306875}
+  velocityWeight: 0.5
+  velocitySmoothTime: 2
+  forwardWeight: 0.3
+  forwardSmoothTime: 2
+  aimWeight: 0.05
+  aimSmoothTime: 0.5
 --- !u!1001 &2100981926
 PrefabInstance:
   m_ObjectHideFlags: 0
