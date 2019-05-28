@@ -22,11 +22,14 @@ public class ScoreTracker: MonoBehaviour
 	{
 		score = stats.GetScore();
 		DisplayScore();
+		stats.lifeTime = Time.time;
+
 	}
+
 
 	private void DisplayScore()
 	{
-		scoreText.text = "Score: " + score.ToString("D8");
+		scoreText.text = "Score: " + score.ToString( "D8" );
 	}
 }
 [System.Serializable]
@@ -52,7 +55,17 @@ public class StatBlock
 	#region misc
 	public float lifeTime;
 	public float distanceTravelled;
-	public float averageVelocity;
+	public float averageVelocity
+	{
+		get
+		{
+			if ( lifeTime == 0 )
+			{
+				return 0f;
+			}
+			return distanceTravelled / lifeTime;
+		}
+	}
 	#endregion
 
 	#region shooting
@@ -74,8 +87,7 @@ public class StatBlock
 		_ += stats.merchantsKilled * 300;
 		_ += stats.navyKilled * 600;
 		_ += stats.piratesKilled * 200;
-		_ += (uint) Mathf.FloorToInt( stats.distanceTravelled / 20f);
-		_ += (uint) Mathf.RoundToInt( stats.averageVelocity * 100 );
+		_ += (uint) Mathf.FloorToInt( stats.distanceTravelled / 20f );
 		_ += stats.shotsFired * 10;
 		_ += (uint) Mathf.RoundToInt( stats.totalShotDistance * 10 );
 		_ += (uint) Mathf.RoundToInt( stats.maxShotDistance * 300 );

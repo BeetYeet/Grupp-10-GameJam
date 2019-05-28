@@ -39,7 +39,7 @@ public class CameraFollow: MonoBehaviour
 
 			Vector3 pos = velocityOffset + forwardOffset + aimOffset + target.position;
 			pos.z = -20f;
-			transform.position = pos + new Vector3(shake.GetCurrentShake(564684), shake.GetCurrentShake( 886516 ), 0f );
+			transform.localPosition = pos + new Vector3(shake.GetCurrentShake(564684), shake.GetCurrentShake( 886516 ), 0f );
 		}
 	}
 
