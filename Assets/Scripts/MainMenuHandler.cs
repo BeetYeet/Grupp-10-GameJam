@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuHandler : MonoBehaviour
 {
 	public Difficulty difficulty;
+	public List<AudioClip> audioClips;
 	public TextMeshProUGUI DifficultyText;
 	public GameObject MainMenuPanel, DifficultyPanel;
 
