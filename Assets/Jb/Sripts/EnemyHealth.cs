@@ -9,10 +9,14 @@ public class EnemyHealth : MonoBehaviour, IHealth
     private float health;
     public float CurrentHealth => health;
     private SpriteRenderer rend;
+    private Sprite flashSprite;
+    private Sprite startSprite;
     void Start()
     {
         health = scriptebleHealth.StartHealth;
         rend = GetComponent<SpriteRenderer>();
+        flashSprite = scriptebleHealth.flashSprite;
+        startSprite = rend.sprite;
     }
 
 
@@ -33,7 +37,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     {
         if (amount <= 0)
             amount = 1;
-        StartCoroutine(flashColor(Color.white));
+        StartCoroutine(FlashSprite(flashSprite));
         health -= amount;
         if (health <= 0)
         {
@@ -45,11 +49,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
         DropItems();
         Destroy(gameObject);
     }
-    IEnumerator flashColor (Color flashColor, float resetTime = 0.2f)
+    IEnumerator FlashSprite (Sprite flashSprite, float resetTime = 0.2f)
     {
-        var color = rend.color;
-        rend.color = flashColor;
+        rend.sprite = flashSprite;
         yield return new WaitForSeconds(resetTime);
-        rend.color = color;
+        rend.sprite = startSprite;
     }
 }

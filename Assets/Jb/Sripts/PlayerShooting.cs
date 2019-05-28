@@ -13,25 +13,40 @@ public class PlayerShooting : MonoBehaviour
     public float heavyFireSpeed;
     float heavyNextFire = 0;
 
+    public bool hasLightAmmo = true;
+    public bool hasHeavyAmmo = true;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && lightNextFire <= Time.time)
+        if (Input.GetKeyDown(KeyCode.Space) && hasLightAmmo && lightNextFire <= Time.time)
         {
             lightNextFire = Time.time + lightFireSpeed;
-            Shoot(lightullet);
+            ShootLight(lightullet);
 
         }
-        if(Input.GetKeyDown(KeyCode.R) && heavyNextFire <= Time.time)
+        if(Input.GetKeyDown(KeyCode.R) && hasHeavyAmmo && heavyNextFire <= Time.time)
         {
             heavyNextFire = Time.time + heavyFireSpeed;
-            Shoot(heavyBullet);
+            ShootHeavy(heavyBullet);
         }
     }
-    void Shoot(GameObject bullet)
+    void ShootLight(GameObject bullet)
     {
+        var lootBase = GetComponent<PlayerLootBase>();
         for (int i = 0; i < bulletSpawnPos.Length; i++)
         {
-            GameObject playerBullet = Instantiate(bullet, bulletSpawnPos[i].position, transform.rotation);
+            GameObject playerBullet = Instantiate(bullet, bulletSpawnPos[i].position, bulletSpawnPos[i].transform.rotation);
+            lootBase.lightBullets -= 1;
+            lootBase.CanShootCheck();
+        }
+    }
+    void ShootHeavy(GameObject bullet)
+    {
+        var lootBase = GetComponent<PlayerLootBase>();
+        for (int i = 0; i < bulletSpawnPos.Length; i++)
+        {
+            GameObject playerBullet = Instantiate(bullet, bulletSpawnPos[i].position, bulletSpawnPos[i].transform.rotation);
+            lootBase.heavyBullets -= 1;
+            lootBase.CanShootCheck();
         }
     }
 }
