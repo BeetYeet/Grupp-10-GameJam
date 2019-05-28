@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     IEnumerator FallApart()
     {
         TakeDmg(1);
-        yield return new WaitForSeconds(Random.Range(1, 3));
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
         StartCoroutine(FallApart());
     }
     float WoodLose(int minLose, int maxLose)
