@@ -13,6 +13,9 @@ public class ScoreTracker: MonoBehaviour
 	}
 	public StatBlock stats;
 	public TextMeshProUGUI scoreText;
+    public GameObject upgradeMenu;
+    public float scoreMultiplire = 1.5f;
+    public uint scoreForNextUpgrade = 100;
 
 	private void Start()
 	{
@@ -23,7 +26,11 @@ public class ScoreTracker: MonoBehaviour
 		score = stats.GetScore();
 		DisplayScore();
 		stats.lifeTime = Time.time;
-
+        if (score >= scoreForNextUpgrade)
+        {
+            scoreForNextUpgrade = (uint)(scoreForNextUpgrade * scoreMultiplire);
+            upgradeMenu.SetActive(true);
+        }
 	}
 
 
