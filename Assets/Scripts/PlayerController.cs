@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController: MonoBehaviour
 {
 	public CameraFollow cameraFollow;
+	public static PlayerController curr;
 
 	public float movementSpeed = 1f;
 	public float turnSpeed = 10f;
@@ -15,11 +16,11 @@ public class PlayerController: MonoBehaviour
 	public float turnAnimMultiplier = 1f;
 	public Transform hull;
 
-    [HideInInspector]
-    public float forwardVelocity = 0f;
+	[HideInInspector]
+	public float forwardVelocity = 0f;
 	private float forwardAcceleration = 0f;
 
-    [HideInInspector]
+	[HideInInspector]
 	public float rotationVelocity = 0f;
 	private float rotationAcceleration = 0f;
 
@@ -27,6 +28,14 @@ public class PlayerController: MonoBehaviour
 	private float rotationAnimationVelocity = 0f;
 
 	private float rot = 0f;
+
+	private void Awake()
+	{
+		if ( curr != null )
+			Debug.LogWarning( "Multiple PlayerControllers, please only have one" );
+		else
+			curr = this;
+	}
 
 	void Update()
 	{

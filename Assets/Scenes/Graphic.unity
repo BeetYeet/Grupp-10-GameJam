@@ -625,31 +625,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: World
       objectReference: {fileID: 0}
-    - target: {fileID: 2256308038558613877, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
-        type: 3}
-      propertyPath: m_HDR
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2256308038558613877, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
-        type: 3}
-      propertyPath: m_AllowMSAA
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2256308038558613877, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
-        type: 3}
-      propertyPath: m_OcclusionCulling
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2256308038558613877, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
-        type: 3}
-      propertyPath: orthographic size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2256308037815507313, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 2118475914}
     - target: {fileID: 2256308038903269735, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -705,21 +680,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3470517186666646093, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
+    - target: {fileID: 2256308037815507313, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
         type: 3}
-      propertyPath: orthographic size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7121660947107646753, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7121660947107646753, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 2118475914}
     - target: {fileID: 309113629857172000, guid: b0463c1f790e0aa4f87461fabf2c1d8a,
         type: 3}
       propertyPath: player
@@ -799,15 +764,5 @@ PrefabInstance:
       propertyPath: cameraFollow
       value: 
       objectReference: {fileID: 1919152793}
-    - target: {fileID: 6245910382367288059, guid: 45f2e0b499b653846a502f16c91db957,
-        type: 3}
-      propertyPath: prewarm
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6245910382367288058, guid: 45f2e0b499b653846a502f16c91db957,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45f2e0b499b653846a502f16c91db957, type: 3}
