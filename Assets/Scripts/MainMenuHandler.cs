@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;   
 
 public class MainMenuHandler : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class MainMenuHandler : MonoBehaviour
 	public void StartGame()
 	{
 		Debug.Log("started game!");
+		SceneManager.LoadScene(1);
 	}
 
 	public void MuteAudio()
