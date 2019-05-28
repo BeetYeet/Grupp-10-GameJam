@@ -97,9 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  velocityWeight: 0.3
+  velocityWeight: 0.15
   velocitySmoothTime: 2
-  forwardWeight: 0.8
+  forwardWeight: 0.4
   forwardSmoothTime: 0.8
-  aimWeight: 0.05
+  aimWeight: 0.2
   aimSmoothTime: 0.5
