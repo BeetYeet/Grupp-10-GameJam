@@ -15,10 +15,12 @@ public class PlayerController: MonoBehaviour
 	public float turnAnimMultiplier = 1f;
 	public Transform hull;
 
-	private float forwardVelocity = 0f;
+    [HideInInspector]
+    public float forwardVelocity = 0f;
 	private float forwardAcceleration = 0f;
 
-	private float rotationVelocity = 0f;
+    [HideInInspector]
+	public float rotationVelocity = 0f;
 	private float rotationAcceleration = 0f;
 
 	private float turnAnim = 0f;
