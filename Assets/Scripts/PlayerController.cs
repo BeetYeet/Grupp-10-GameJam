@@ -2,35 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController: MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public CameraFollow cameraFollow;
 
     public float movementSpeed = 1f;
-	public float turnSpeed = 10f;
-	public float speedChangeTime = 1f;
-	public float turnChangeTime = 1f;
-	public float turnAnimationChangeTime = .1f;
-	public float turnMinimumPart = 0.1f;
-	public float turnAnimMultiplier = 1f;
-	public Transform hull;
+    public float turnSpeed = 10f;
+    public float speedChangeTime = 1f;
+    public float turnChangeTime = 1f;
+    public float turnAnimationChangeTime = .1f;
+    public float turnMinimumPart = 0.1f;
+    public float turnAnimMultiplier = 1f;
+    public Transform hull;
 
-	private float forwardVelocity = 0f;
-	private float forwardAcceleration = 0f;
+    [HideInInspector]
+    public float forwardVelocity = 0f;
+    private float forwardAcceleration = 0f;
 
-	private float rotationVelocity = 0f;
-	private float rotationAcceleration = 0f;
+    [HideInInspector]
+    public float rotationVelocity = 0f;
+    private float rotationAcceleration = 0f;
 
 	private float turnAnim = 0f;
-	private float rotationAnimationVelocity = 0f;
+    private float rotationAnimationVelocity = 0f;
 
-	private float rot = 0f;
+    private float rot = 0f;
 
 	void Update()
 	{
 		{
 			rotationVelocity = Mathf.SmoothDamp( rotationVelocity, Input.GetAxis( "Horizontal" ), ref rotationAcceleration, turnChangeTime );
-			float factor = turnMinimumPart + ( forwardVelocity / movementSpeed ) * ( 1f - turnMinimumPart );
+            float factor = turnMinimumPart + ( forwardVelocity / movementSpeed ) * ( 1f - turnMinimumPart );
 			rot -= rotationVelocity * Time.deltaTime * turnSpeed * factor;
 
 			turnAnim = Mathf.SmoothDamp( turnAnim, turnAnimMultiplier * ( forwardVelocity / movementSpeed ) * rotationVelocity, ref rotationAnimationVelocity, turnAnimationChangeTime );
