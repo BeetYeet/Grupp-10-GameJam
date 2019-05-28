@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Playsound : MonoBehaviour
 {
-	public List<AudioClip> audioClips;
-
+	public static Playsound i
+	{
+		get; private set;
+	}
 	public AudioSource musicSource;
 	public AudioSource SFXcSource;
     // Start is called before the first frame update
     void Start()
     {
-		
+		i = this;
     }
 
     // Update is called once per frame

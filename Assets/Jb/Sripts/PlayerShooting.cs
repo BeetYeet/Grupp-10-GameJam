@@ -18,10 +18,21 @@ public class PlayerShooting : MonoBehaviour
     public bool hasHeavyAmmo = true;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && hasLightAmmo && lightNextFire <= Time.time)
+        if(Input.GetMouseButtonDown(0))
+        {
+            for (int i = 0; i < bulletSpawnPos.Length; i++)
+            {
+                bulletSpawnPos[i].gameObject.SetActive(true);
+            }
+        }
+        if (Input.GetMouseButtonUp(0) && hasLightAmmo && lightNextFire <= Time.time)
         {
             lightNextFire = Time.time + lightFireSpeed;
             ShootLight(lightullet);
+            for (int i = 0; i < bulletSpawnPos.Length; i++)
+            {
+                bulletSpawnPos[i].gameObject.SetActive(false);
+            }
 
         }
         if(Input.GetKeyDown(KeyCode.R) && hasHeavyAmmo && heavyNextFire <= Time.time)
@@ -37,8 +48,9 @@ public class PlayerShooting : MonoBehaviour
         {
             GameObject playerBullet = Instantiate(bullet, bulletSpawnPos[i].position, bulletSpawnPos[i].transform.rotation);
             lootBase.lightBullets -= 1;
-            lootBase.CanShootCheck();
         }
+        lootBase.CanShootCheck();
+        
     }
     void ShootHeavy(GameObject bullet, float bullets)
     {

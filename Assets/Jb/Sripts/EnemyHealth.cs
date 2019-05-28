@@ -37,6 +37,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     {
         if (amount <= 0)
             amount = 1;
+        //reputation.reputatuion += (int)scriptebleHealth.repBoast;
         StartCoroutine(FlashSprite(flashSprite));
         health -= amount;
         if (health <= 0)
