@@ -14999,6 +14999,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1919152792}
   - component: {fileID: 1919152793}
+  - component: {fileID: 1919152794}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -15035,12 +15036,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2118475914}
+  shake: {fileID: 0}
   velocityWeight: 0.15
   velocitySmoothTime: 2
   forwardWeight: 0.4
   forwardSmoothTime: 0.8
   aimWeight: 0.2
   aimSmoothTime: 0.5
+--- !u!114 &1919152794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919152791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5566c35738392e49b9bac6b6f34cfb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycles: 4
+  baseFreq: 5
+  baseMagnitude: 0.3
+  cycleFreqMultiplier: 2.8935
+  cycleMagnitudeMultiplier: 0.78949744
+  currentShake: 0
+  decayFactor: 0.95
 --- !u!1 &1966085419
 GameObject:
   m_ObjectHideFlags: 0
