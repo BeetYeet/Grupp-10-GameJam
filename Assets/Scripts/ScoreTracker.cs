@@ -22,7 +22,7 @@ public class ScoreTracker: MonoBehaviour
 	{
 		score = stats.GetScore();
 		DisplayScore();
-		stats.lifeTime += Time.deltaTime;
+		stats.lifeTime = Time.time;
 
 	}
 
