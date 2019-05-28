@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ScriptebleHealth : ScriptableObject
 {
-    //rördu dör du
+    public Sprite flashSprite;
     public float StartHealth;
     public float MaxHealth;
 }

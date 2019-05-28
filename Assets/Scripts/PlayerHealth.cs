@@ -4,21 +4,54 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
-    ScriptebleHealth scriptebleHealth;
-    public float CurrentHealth => throw new System.NotImplementedException();
+    private float health;
+    private float maxHealth;
+    public ScriptebleHealth scriptebleHealth;
+    PlayerLootBase playerLootBase;
+    PlayerShooting playerShooting;
+    public float CurrentHealth => health;
+    private void Start()
+    {
+        playerLootBase = GetComponent<PlayerLootBase>();
+        health = scriptebleHealth.StartHealth;
+        maxHealth = scriptebleHealth.MaxHealth;
+        StartCoroutine(FallApart());
+    }
 
     public void DropItems()
     {
-        throw new System.NotImplementedException();
     }
 
     public void OnDeath()
     {
-        throw new System.NotImplementedException();
+        print("Died");
     }
 
     public void TakeDmg(float amount = 1)
     {
-        throw new System.NotImplementedException();
+        playerLootBase.AddLoot(-WoodLose(12, 24), -LightLose(4, 8), -HeavyLose(1, 3));
+        playerLootBase.CanShootCheck();
+
+        if (playerLootBase.totalWood <= 0)
+            OnDeath();
     }
+    IEnumerator FallApart()
+    {
+        TakeDmg(1);
+        yield return new WaitForSeconds(Random.Range(1, 3));
+        StartCoroutine(FallApart());
+    }
+    float WoodLose(int minLose, int maxLose)
+    {
+       return Random.Range(minLose, maxLose);
+    }
+    float LightLose(int minLose, int maxLose)
+    {
+       return Random.Range(minLose, maxLose);
+    }
+    float HeavyLose(int minLose, int maxLose)
+    {
+       return Random.Range(minLose, maxLose);
+    }
+
 }

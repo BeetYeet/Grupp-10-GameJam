@@ -15,13 +15,13 @@ public class DropObjScript : MonoBehaviour
     {
         startPos = transform.position;
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerLootBase>().AddLoot(w, l, h);
-            GetComponent<AudioSource>().Play();
             DisableStuff();
+            GetComponent<AudioSource>().Play();
             Destroy(gameObject, GetComponent<AudioSource>().clip.length);
         }
     }

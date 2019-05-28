@@ -8,10 +8,15 @@ public class EnemyHealth : MonoBehaviour, IHealth
     public LootDropBase lootDropBase;
     private float health;
     public float CurrentHealth => health;
-
+    private SpriteRenderer rend;
+    private Sprite flashSprite;
+    private Sprite startSprite;
     void Start()
     {
         health = scriptebleHealth.StartHealth;
+        rend = GetComponent<SpriteRenderer>();
+        flashSprite = scriptebleHealth.flashSprite;
+        startSprite = rend.sprite;
     }
 
 
@@ -32,7 +37,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     {
         if (amount <= 0)
             amount = 1;
-
+        StartCoroutine(FlashSprite(flashSprite));
         health -= amount;
         if (health <= 0)
         {
@@ -44,9 +49,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
         DropItems();
         Destroy(gameObject);
     }
-    public void Update()
+    IEnumerator FlashSprite (Sprite flashSprite, float resetTime = 0.2f)
     {
-        if (Input.GetKeyDown(KeyCode.P)) //Går att byta ut till typ "tar skada" eller "On death"
-            OnDeath();
+        rend.sprite = flashSprite;
+        yield return new WaitForSeconds(resetTime);
+        rend.sprite = startSprite;
     }
 }
