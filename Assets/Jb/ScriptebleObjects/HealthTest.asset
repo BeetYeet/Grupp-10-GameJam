@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e65601db9d88394a9f8737faca67917, type: 3}
   m_Name: HealthTest
   m_EditorClassIdentifier: 
-  StartHealth: 0
-  MaxHealth: 0
+  StartHealth: 5
+  MaxHealth: 10
