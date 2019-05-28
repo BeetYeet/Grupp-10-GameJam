@@ -67,12 +67,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cycles: 4
-  baseFreq: 5
-  baseMagnitude: 0.3
+  baseFreq: 4
+  baseMagnitude: 0.2
   cycleFreqMultiplier: 2.8935
   cycleMagnitudeMultiplier: 0.78949744
   currentShake: 0
-  decayFactor: 0.95
+  decayFactor: 0.9
 --- !u!1 &2256308038558613874
 GameObject:
   m_ObjectHideFlags: 0
