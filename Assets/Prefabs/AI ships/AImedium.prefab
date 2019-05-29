@@ -5065,9 +5065,10 @@ GameObject:
   - component: {fileID: 21228152474841761}
   - component: {fileID: 1462723770797180532}
   - component: {fileID: 8286193255362478618}
-  m_Layer: 0
+  - component: {fileID: 8548674566495353369}
+  m_Layer: 8
   m_Name: AImedium
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5170,6 +5171,20 @@ MonoBehaviour:
   cannonCooldown: 10
   target: {fileID: 0}
   distance: 10
+--- !u!114 &8548674566495353369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21228152474841762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a7e39b6fd345394cbfd6edb4c1d9cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptebleHealth: {fileID: 11400000, guid: 6a256eff0a98fbc4a9c62a0a65d5c2e4, type: 2}
+  lootDropBase: {fileID: 11400000, guid: 6ff4fcefff6fa8144a7203f2689b5687, type: 2}
 --- !u!1 &21228152600075048
 GameObject:
   m_ObjectHideFlags: 0
