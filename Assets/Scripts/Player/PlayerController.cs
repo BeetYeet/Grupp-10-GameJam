@@ -31,6 +31,7 @@ public class PlayerController: ControlerBase
 			Debug.LogWarning( "Multiple PlayerControllers, please only have one" );
 		else
 			curr = this;
+		GetComponent<Collider2D>().enabled = true;
 	}
 
 	void Update()

@@ -82,6 +82,8 @@ public class StatBlock
 
 	#region shooting
 	public uint shotsFired;
+	public uint shotsHit;
+	public uint criticalHits;
 	public float totalShotDistance;
 	public float maxShotDistance;
 	public float averageShotDistance;
@@ -102,7 +104,8 @@ public class StatBlock
 		_ += stats.navyKilled * 600;
 		_ += stats.piratesKilled * 200;
 		_ += (uint) Mathf.FloorToInt( stats.distanceTravelled / 20f );
-		_ += stats.shotsFired * 10;
+		_ += stats.shotsHit * 10;
+		_ += stats.criticalHits * 50;
 		_ += (uint) Mathf.RoundToInt( stats.totalShotDistance * 10 );
 		_ += (uint) Mathf.RoundToInt( stats.maxShotDistance * 300 );
 		_ += (uint) Mathf.RoundToInt( stats.averageShotDistance * 100 );

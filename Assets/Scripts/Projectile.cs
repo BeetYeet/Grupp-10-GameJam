@@ -6,17 +6,17 @@ public class Projectile : MonoBehaviour
 {
 
     public float speed = 2;
-    public float time = 4, randTime = 1;
+    public float range = 4, randRange = 1;
 
     private float deractionX, deractionY;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        float v = transform.localRotation.z * 0.0174533f;
+        float v = transform.localRotation.z * Mathf.Deg2Rad;
         deractionX = Mathf.Sin(v) * speed;
         deractionY = Mathf.Cos(v) * speed;
-        //Destroy(gameObject, time + Random.Range(-randTime, randTime));
+        Destroy(gameObject, range + Random.Range(0, randRange));
     }
 
     // Update is called once per frame
