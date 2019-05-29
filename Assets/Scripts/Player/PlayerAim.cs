@@ -12,10 +12,17 @@ public class PlayerAim: MonoBehaviour
 	List<CanonUIItem> cannonIcons;
 	public GameObject cannonIconParent;
 
-	private void Start()
+    List<SpriteRenderer> images = new List<SpriteRenderer>();
+
+    private void Start()
 	{
 		cannonIcons = cannonIconParent.GetComponentsInChildren<CanonUIItem>().ToList();
-	}
+        for (int c = 0; c < cannonIcons.Count; c++)
+        {
+            images.Add(cannonIcons[c].gameObject.GetComponent<SpriteRenderer>());
+        }
+
+    }
 
 	void Update()
 	{
@@ -26,8 +33,12 @@ public class PlayerAim: MonoBehaviour
 		for ( int c = 0; c < cannons.Count; c++ )
 		{
             if (!cannons[c].gameObject.activeSelf)
+            {
+                images[c].enabled = false;
                 continue;
-			Aimable x = cannons[c];
+            }
+            images[c].enabled = true;
+            Aimable x = cannons[c];
 			bool aimingThere = x.TryAim( pos - x.transform.position );
 			cannonIcons[c].EnableCanon( ( aimingThere ? ( x.canFire ? 1 : 2 ) : 0 ) );
 
