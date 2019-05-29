@@ -7,6 +7,7 @@ public class PlayerAim: MonoBehaviour
 	public List<Aimable> cannons;
 	public GameObject cannonShellPrefab;
 	public float cannonCooldown = 10f;
+    public float range = 4;
 
 	void Update()
 	{
@@ -21,7 +22,8 @@ public class PlayerAim: MonoBehaviour
 			if ( Input.GetMouseButton( 0 ) && aimingThere && x.canFire )
 			{
 				GameObject go = Instantiate( cannonShellPrefab, x.transform.position, x.transform.rotation );
-				x.currentCooldown = cannonCooldown - Random.Range( 0, cannonCooldown / 10 );
+                go.GetComponent<Projectile>().range = range;
+                x.currentCooldown = cannonCooldown - Random.Range( 0, cannonCooldown / 10 );
 			}
 		}
 		);
