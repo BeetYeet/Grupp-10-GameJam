@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9e8fd0a863f084aba4dcddba9fb469, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  speedForward: 12
-  rotSpeed: 1
-  changeDirTime: 5
-  anglesPerChange: 12
+  speedForward: 3
+  rotSpeed: 3
+  changeDirTime: 1
+  anglesPerChange: 20

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
+    public AudioClip fallApartclip;
     private float health;
     private float maxHealth;
     public ScriptebleHealth scriptebleHealth;
@@ -24,6 +25,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     public void OnDeath()
     {
+        StartCoroutine(PlayAudio(scriptebleHealth.boomClip));
         print("Died");
     }
 
@@ -31,6 +33,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         playerLootBase.AddLoot(-WoodLose(12, 24), -LightLose(4, 8), -HeavyLose(1, 3));
         playerLootBase.CanShootCheck();
+        StartCoroutine(PlayAudio(scriptebleHealth.hurtClip));
 
         if (playerLootBase.totalWood <= 0)
             OnDeath();
@@ -38,9 +41,27 @@ public class PlayerHealth : MonoBehaviour, IHealth
     IEnumerator FallApart()
     {
         TakeDmg(1);
-        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        StartCoroutine(PlayAudio(fallApartclip));
+        yield return new WaitForSeconds(Random.Range(1f, 4f));
         StartCoroutine(FallApart());
     }
+
+    IEnumerator PlayAudio(AudioClip clip)
+    {
+        if (GetComponent<AudioSource>() == null)
+            gameObject.AddComponent<AudioSource>();
+
+        GetComponent<AudioSource>().clip = clip;
+        GetComponent<AudioSource>().Play();
+        yield return new WaitForEndOfFrame();
+    }
+
+    void DisableStuff()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+    }
+
     float WoodLose(int minLose, int maxLose)
     {
        return Random.Range(minLose, maxLose);
