@@ -85,16 +85,55 @@ public class GameController: MonoBehaviour
 		Debug.Log( dir );
 		Quaternion rot = Quaternion.LookRotation( Vector3.forward, dir );
 		GameObject go = Instantiate( GetEnemy(), pos, rot );
-		Debug.Log( go.transform.rotation.ToEuler() );
 	}
 	GameObject GetEnemy()
 	{
-		/*
-			foreach ( GameObject go in enemies )
+		List<yoted> probableEnemies = new List<yoted>();
+		foreach ( GameObject go in enemies )
+		{
+			float difficulty = go.GetComponent<EnemyHealth>().scriptebleHealth.difficulty;
+			switch ( MainMenuHandler.difficulty )
 			{
-				float difficulty = go.GetComponent<EnemyHealth>().scriptebleHealth;
+				case MainMenuHandler.Difficulty.easy:
+					difficulty = 1f / Mathf.Pow( difficulty, 1 );
+					break;
+				case MainMenuHandler.Difficulty.medium:
+					difficulty = 1f / Mathf.Pow( difficulty, 1.2f );
+					break;
+				case MainMenuHandler.Difficulty.hard:
+					difficulty = 1f / Mathf.Pow( difficulty, 1.5f );
+					break;
+				case MainMenuHandler.Difficulty.impossible:
+					difficulty = 1f / Mathf.Pow( difficulty, 2 );
+					break;
 			}
-			*/
-		return enemies[1];
+			probableEnemies.Add( new yoted( difficulty, go ) );
+		}
+		float total = 0f;
+		foreach ( yoted _ in probableEnemies )
+		{
+			total += _.difficluty;
+		}
+		GameObject enemy = probableEnemies[probableEnemies.Count - 1].obj;
+		foreach ( yoted _ in probableEnemies )
+		{
+			if ( RandomBool( _.difficluty / total ) )
+			{
+				enemy = _.obj;
+				break;
+			}
+		}
+		return enemy;
+	}
+}
+class yoted
+{
+	public float difficluty;
+	public GameObject obj;
+
+	public yoted( float difficluty, GameObject obj )
+	{
+		this.difficluty = difficluty;
+		this.obj = obj;
 	}
 }
