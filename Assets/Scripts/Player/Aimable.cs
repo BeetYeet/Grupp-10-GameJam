@@ -40,7 +40,6 @@ public class Aimable: MonoBehaviour
 		transform.rotation = Quaternion.RotateTowards( transform.rotation, targetRotation, rotationSpeed * Time.deltaTime );
 
 		float toTarget = Quaternion.Angle( transform.rotation, targetRotation );
-		Debug.Log( toTarget + " " + targetRotation.eulerAngles.z );
 	}
 
 	public bool TryAim( Vector2 direction ) //returns true if it is aiming close enough
