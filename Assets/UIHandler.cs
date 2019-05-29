@@ -14,8 +14,10 @@ public class UIHandler : MonoBehaviour
 	public GameObject Deathscreen;
 	public GameObject PauseScreen;
 	public TextMeshProUGUI hptext;
+	public TextMeshProUGUI Dangertext;
 	public TextStuff textStuff;
 	public AudioMixer mixer;
+	public bool warning;
 	bool activated;
 	bool pauseActive;
 	bool canPause = true;
@@ -28,9 +30,11 @@ public class UIHandler : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		hptext.text = "health: " + PlayerController.curr.PlayerHealth.health.ToString();
+		hptext.text = "Hull health:" + PlayerController.curr.PlayerLootBase.totalWood.ToString();
 		if (Input.GetKeyDown(KeyCode.Escape))
 			PauseGame(pauseActive = !pauseActive);
+
+
 	}
 
 
@@ -88,6 +92,15 @@ public class UIHandler : MonoBehaviour
 	public void quitGame()
 	{
 		Application.Quit();
+	}
+
+	public void enableWarning(bool enable)
+	{
+
+		
+		
+			Dangertext.enabled = enable;
+
 	}
 }
 [System.Serializable]
