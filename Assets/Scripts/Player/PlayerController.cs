@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,8 @@ public class PlayerController: ControlerBase
 {
 	public CameraFollow cameraFollow;
 	public static PlayerController curr;
+	public PlayerHealth PlayerHealth;
+	public PlayerLootBase PlayerLootBase;
 
 	public float movementSpeed = 1f;
 	public float turnSpeed = 10f;
@@ -31,6 +33,8 @@ public class PlayerController: ControlerBase
 			Debug.LogWarning( "Multiple PlayerControllers, please only have one" );
 		else
 			curr = this;
+		PlayerHealth = GetComponent<PlayerHealth>();
+		PlayerLootBase = GetComponent<PlayerLootBase>();
 		GetComponent<Collider2D>().enabled = true;
 	}
 

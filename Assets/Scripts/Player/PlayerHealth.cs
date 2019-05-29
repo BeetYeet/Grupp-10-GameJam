@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
     public AudioClip fallApartclip;
-    private float health;
+    public float health;
     private float maxHealth;
     public ScriptebleHealth scriptebleHealth;
     PlayerLootBase playerLootBase;
@@ -26,6 +26,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void OnDeath()
     {
         StartCoroutine(PlayAudio(scriptebleHealth.boomClip));
+		UIHandler.i.die(true);
         print("Died");
     }
 
