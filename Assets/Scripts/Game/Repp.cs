@@ -18,7 +18,7 @@ public class Repp : MonoBehaviour
         repScript = this;
     }
 
-    static void changeRep(float amount)
+    public static void changeRep(float amount)
     {
 
 

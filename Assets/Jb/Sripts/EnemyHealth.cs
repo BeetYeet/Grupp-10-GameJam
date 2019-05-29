@@ -55,6 +55,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
     {
         DisableStuff();
         DropItems();
+        Repp.changeRep(scriptebleHealth.repBoast);
         Destroy(gameObject, GetComponent<AudioSource>().clip.length);
     }
     IEnumerator FlashSprite (float resetTime = 0.2f)
