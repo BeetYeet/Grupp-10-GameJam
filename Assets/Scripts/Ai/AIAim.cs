@@ -10,7 +10,15 @@ public class AIAim: MonoBehaviour
 	public Transform target;
 	public float distance = 10;
 
-	void Update()
+    private void Awake()
+    {
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+    }
+
+    void Update()
 	{
 		float dist = Vector3.Distance( target.position, transform.position );
 
