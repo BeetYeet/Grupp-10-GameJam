@@ -66,14 +66,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     bonusScore: 0
-    piratesKilled: 0
-    merchantsKilled: 0
-    navyKilled: 0
     woodGathered: 0
     lifeTime: 0
     distanceTravelled: 0
     shotsFired: 0
-    shotsHit: 0
     criticalHits: 0
     totalShotDistance: 0
     maxShotDistance: 0
@@ -81,7 +77,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   upgradeMenu: {fileID: 0}
   nextUpgradeScoreMultiplire: 1.5
-  scoreForNextUpgrade: 350
+  scoreForNextUpgrade: 300
 --- !u!1001 &2339441742176423524
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -41,8 +41,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     public void TakeDmg(float amount = 1)
     {
-        playerLootBase.AddLoot(-WoodLose(1, 10), -LightLose(4, 8), -HeavyLose(1, 3));
-        playerLootBase.CanShootCheck();
+        playerLootBase.AddLoot(-WoodLose(5, 20), -LightLose(4, 8), -HeavyLose(1, 3));
+        //playerLootBase.CanShootCheck();
         StartCoroutine(PlayAudio(scriptebleHealth.hurtClip));
         StartCoroutine(FlashSprite());
 
@@ -51,8 +51,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
     }
     IEnumerator FallApart()
     {
-        TakeDmg(1);
-        StartCoroutine(PlayAudio(fallApartclip));
+        playerLootBase.AddLoot(-WoodLose(1, 10), -LightLose(4, 8), -HeavyLose(1, 3));
+        //StartCoroutine(PlayAudio(fallApartclip));
         yield return new WaitForSeconds(Random.Range(1f, 4f));
         StartCoroutine(FallApart());
     }
