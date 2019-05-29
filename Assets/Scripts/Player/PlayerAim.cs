@@ -25,6 +25,8 @@ public class PlayerAim: MonoBehaviour
 
 		for ( int c = 0; c < cannons.Count; c++ )
 		{
+            if (!cannons[c].gameObject.activeSelf)
+                continue;
 			Aimable x = cannons[c];
 			bool aimingThere = x.TryAim( pos - x.transform.position );
 			cannonIcons[c].EnableCanon( ( aimingThere ? ( x.canFire ? 1 : 2 ) : 0 ) );
