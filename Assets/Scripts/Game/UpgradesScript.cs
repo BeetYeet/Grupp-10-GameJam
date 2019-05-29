@@ -9,7 +9,7 @@ public class UpgradesScript : MonoBehaviour
 
     public Sprite[] sprites;
 
-    upgradeProfile[] upgrades = new upgradeProfile[1];
+    List<upgradeProfile> upgrades = new List<upgradeProfile>();
 
     public Text[] texts;
     public Image[] images;
@@ -22,9 +22,9 @@ public class UpgradesScript : MonoBehaviour
         ids = new int[texts.Length];
         values = new float[texts.Length];
 
-        for (int i = 0; i < upgrades.Length; i++)
+        for (int i = 0; i < sprites.Length; i++)
         {
-            upgrades[i] = new upgradeProfile();
+            upgrades.Add(new upgradeProfile());
             upgrades[i].create(sprites[i], i);
         }
 
@@ -32,30 +32,90 @@ public class UpgradesScript : MonoBehaviour
 
     private void OnEnable()
     {
+        bool x = true;
+        for (int i = 0; i < upgrades.Count; i++)
+        {
+            if (upgrades[i].uses == 0)
+                upgrades.RemoveAt(i);
+            x = false;
+        }
+        if (x)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
         Time.timeScale = 0.01f;
         for (int i = 0; i < texts.Length; i++)
         {
-            int rand = Random.Range(0, upgrades.Length);
+            int rand = Random.Range(0, upgrades.Count);
             ids[i] = rand;
             values[i] = upgrades[rand].Value();
             if (rand == 0)
             {
                 texts[i].text = upgrades[rand].name +
-                    (int)(100*values[i]/GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().movementSpeed) + "%";
+                    (int)(100 * values[i] / GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().movementSpeed) + "%";
 
             }
+            else if (rand == 1)
+            {
+                texts[i].text = upgrades[rand].name +
+                    (int)(100 * values[i] / GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>().cannonCooldown) + "%";
+
+            }
+            else if (rand == 2)
+            {
+                texts[i].text = upgrades[rand].name +
+                    (int)(100 * values[i] / GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>().range) + "%";
+
+            }
+            else if (rand == 3)
+            {
+                texts[i].text = upgrades[rand].name;
+            }
             else
-            texts[i].text = upgrades[rand].name + values[i];
+                texts[i].text = upgrades[rand].name + values[i];
             images[i].sprite = upgrades[rand].image;
         }
     }
 
-   public void ButtonInput(int buttonNum)
+    public void ButtonInput(int buttonNum)
     {
+        upgrades[ids[buttonNum]].uses--;
+
         switch (ids[buttonNum])
         {
             case 0:
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().movementSpeed += values[buttonNum];
+                break;
+            case 1:
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>().cannonCooldown += values[buttonNum];
+                break;
+            case 2:
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>().range += values[buttonNum];
+                break;
+            case 3:
+                {
+                    bool l = true;
+                    PlayerAim pa = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>();
+                    pa.cannons.ForEach((x) =>
+                    {
+                        if (!x.gameObject.activeSelf)
+                        {
+                            l = false;
+                            x.gameObject.SetActive(true);
+                            Time.timeScale = 1f;
+                            gameObject.SetActive(false);
+                            return;
+                        }
+                    });
+                    if (l)
+                    {
+                        upgrades[ids[buttonNum]].uses = 0;
+                        OnEnable();
+                        return;
+                    }
+                }
                 break;
 
             default:
@@ -68,6 +128,7 @@ public class UpgradesScript : MonoBehaviour
 public class upgradeProfile
 {
     public int id = 0;
+    public int uses = -1;
     public string name = "upgrade";
     public Sprite image;
     public float max { private get; set; }
@@ -94,7 +155,26 @@ public class upgradeProfile
                 name = "Increes speed by ";
                 Value();
                 break;
-
+            case 1:
+                max = 0.25f;
+                min = 0.05f;
+                name = "Increes reload time by ";
+                Value();
+                break;
+            case 2:
+                uses = 100;
+                max = 0.25f;
+                min = 0.05f;
+                name = "Increes range by ";
+                Value();
+                break;
+            case 3:
+                uses = 4;
+                max = 1;
+                min = 1;
+                name = "Add a cannon";
+                ValueInt();
+                break;
 
             default:
                 break;

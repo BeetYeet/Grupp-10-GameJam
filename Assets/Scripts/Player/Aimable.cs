@@ -19,6 +19,7 @@ public class Aimable: MonoBehaviour
 	float cannonVelocity = 0f;
 	public float rotationSpeed = 5;
 
+	public float acceptableOffset = 15f;
 
 	void Start()
 	{
@@ -37,9 +38,11 @@ public class Aimable: MonoBehaviour
 				currentCooldown = 0f;
 		}
 		transform.rotation = Quaternion.RotateTowards( transform.rotation, targetRotation, rotationSpeed * Time.deltaTime );
+
+		float toTarget = Quaternion.Angle( transform.rotation, targetRotation );
 	}
 
-	public bool TryAim( Vector2 direction )//returns true if it could aim there
+	public bool TryAim( Vector2 direction ) //returns true if it is aiming close enough
 	{
 		direction.Normalize();
 		float toMin = Vector2.SignedAngle( direction, hull.TransformVector( minangle ) );
@@ -49,7 +52,7 @@ public class Aimable: MonoBehaviour
 		Vector2 use = Vector2.zero;
 		if ( toMin < 0 || toMax > 0 )
 		{
-			//cant aim there
+			//can't aim there, aim as close as possible
 			if ( Mathf.Abs( toMin ) < Mathf.Abs( toMax ) )
 			{
 				use = hull.TransformVector( minangle );
@@ -67,8 +70,11 @@ public class Aimable: MonoBehaviour
 
 
 		targetRotation = Quaternion.LookRotation( Vector3.forward, use );
+		
+		Debug.DrawLine( transform.position, transform.position + transform.up, Color.blue );
+		Debug.DrawLine( transform.position, transform.position + (Vector3) direction.normalized, Color.cyan );
 
-		if ( use == direction )
+		if ( Quaternion.Angle( transform.rotation, Quaternion.LookRotation( Vector3.forward, direction ) ) < acceptableOffset )
 		{
 			return true;
 		}

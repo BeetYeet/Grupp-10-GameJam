@@ -15,8 +15,13 @@ TagManager:
   - 
   - 
   - Pixelize
+<<<<<<< HEAD
   - Player
   - Bullet
+=======
+  - WorldBorder
+  - 
+>>>>>>> 4ba4cc2e41f4ac585da34a28e351cba0884e0805
   - 
   - 
   - 
@@ -41,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 937952877
     locked: 0
