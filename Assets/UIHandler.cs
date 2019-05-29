@@ -3,26 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Audio;
 
 public class UIHandler : MonoBehaviour
 {
+	public static UIHandler i
+	{
+		get; private set;
+	}
 	public GameObject Deathscreen;
 	public GameObject PauseScreen;
+	public TextMeshProUGUI hptext;
 	public TextStuff textStuff;
+	public AudioMixer mixer;
 	bool activated;
 	bool pauseActive;
 	bool canPause = true;
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		i = this;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.M))
-			die(activated = !activated);
+		hptext.text = "health: " + PlayerController.curr.PlayerHealth.health.ToString();
 		if (Input.GetKeyDown(KeyCode.Escape))
 			PauseGame(pauseActive = !pauseActive);
 	}
@@ -40,6 +46,7 @@ public class UIHandler : MonoBehaviour
 
 		else
 		{
+			
 			Time.timeScale = 0;
 			textStuff.Totalscore.text = GameController.scoreTracker.stats.GetScore().ToString("D8");
 			textStuff.merchantscore.text = GameController.scoreTracker.stats.merchantsKilled.ToString("D4");

@@ -70,8 +70,16 @@ public class EnemyHealth : MonoBehaviour, IHealth
     }
     void DisableStuff()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
+        if(GetComponent<SpriteRenderer>() != null)
+            GetComponent<SpriteRenderer>().enabled = false;
+
+
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.enabled = false;
+        }
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

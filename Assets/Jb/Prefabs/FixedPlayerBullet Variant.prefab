@@ -15,7 +15,12 @@ PrefabInstance:
     - target: {fileID: 8854136876744933129, guid: af4af5df7d81b834aa2b88d96b7a203f,
         type: 3}
       propertyPath: m_Name
-      value: FixedPlayerBullet
+      value: FixedPlayerBullet Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854136876744933129, guid: af4af5df7d81b834aa2b88d96b7a203f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8854136876744933131, guid: af4af5df7d81b834aa2b88d96b7a203f,
         type: 3}
@@ -72,5 +77,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8854136876744933128, guid: af4af5df7d81b834aa2b88d96b7a203f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: af4af5df7d81b834aa2b88d96b7a203f, type: 3}
