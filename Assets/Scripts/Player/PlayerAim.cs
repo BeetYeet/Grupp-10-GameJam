@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerAim: MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class PlayerAim: MonoBehaviour
 	public GameObject cannonShellPrefab;
 	public float cannonCooldown = 10f;
 	public float range = 4;
+	List<CanonUIItem> cannonIcons;
+	public GameObject cannonIconParent;
+
+	private void Start()
+	{
+		cannonIcons = cannonIconParent.GetComponentsInChildren<CanonUIItem>().ToList();
+	}
 
 	void Update()
 	{
@@ -15,18 +23,22 @@ public class PlayerAim: MonoBehaviour
 		pos.z = 0f;
 		pos = Camera.main.ScreenToWorldPoint( pos );
 
-		cannons.ForEach(
-		( x ) =>
+		for ( int c = 0; c < cannons.Count; c++ )
 		{
+			Aimable x = cannons[c];
 			bool aimingThere = x.TryAim( pos - x.transform.position );
+			cannonIcons[c].EnableCanon( ( aimingThere ? ( x.canFire ? 1 : 2 ) : 0 ) );
+
 			if ( Input.GetMouseButton( 0 ) && aimingThere && x.canFire )
 			{
 				GameObject go = Instantiate( cannonShellPrefab, x.transform.position, x.transform.rotation );
 				go.GetComponent<Projectile>().range = range;
 				x.currentCooldown = cannonCooldown - Random.Range( 0, cannonCooldown / 10 );
 				Camera.main.transform.parent.GetComponent<CameraShake>().Shake( 1f );
+				GameController.scoreTracker.stats.shotsFired++;
 			}
+
 		}
-		);
+
 	}
 }

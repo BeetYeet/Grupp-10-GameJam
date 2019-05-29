@@ -5,10 +5,10 @@ using TMPro;
 
 public class Repp : MonoBehaviour
 {
-
+    public float difficultyMultiplier = 0.5f;
     public float Rep { get; private set; }
     public readonly float maxRep = 100;
-    public  TextMeshProUGUI text;
+    public TextMeshProUGUI text;
 
 
     private void Awake()
@@ -18,11 +18,16 @@ public class Repp : MonoBehaviour
 
     void changeRep(float amount)
     {
+
+
+        amount += (float)MainMenuHandler.difficulty * difficultyMultiplier;
+
         Rep += amount;
         if (Rep > maxRep)
         {
             Rep = maxRep;
-        } else if (Rep < 0)
+        }
+        else if (Rep < 0)
         {
             Rep = 0;
         }
