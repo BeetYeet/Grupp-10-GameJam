@@ -28,7 +28,7 @@ public class UIHandler : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		hptext.text = "health: " + PlayerController.curr.PlayerLootBase.totalWood.ToString();
+		hptext.text = "health: " + PlayerController.curr.PlayerHealth.health.ToString();
 		if (Input.GetKeyDown(KeyCode.Escape))
 			PauseGame(pauseActive = !pauseActive);
 	}

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
-	public Difficulty difficulty;
+	public static Difficulty difficulty;
 	public List<AudioClip> audioClips;
 	public TextMeshProUGUI DifficultyText;
 	public GameObject MainMenuPanel, DifficultyPanel;
@@ -15,6 +15,7 @@ public class MainMenuHandler : MonoBehaviour
 
 	private void Start()
 	{
+		
 		MainMenuPanel.SetActive(true);
 		DifficultyPanel.SetActive(false);
 	}
