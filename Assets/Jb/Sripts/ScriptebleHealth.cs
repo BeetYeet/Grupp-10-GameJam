@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ScriptebleHealth : ScriptableObject
 {
+    public float difficulty;
     public AudioClip bumpSound;
     public AudioClip boomClip;
     public AudioClip hurtClip;

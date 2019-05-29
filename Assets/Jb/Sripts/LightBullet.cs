@@ -20,6 +20,7 @@ public class LightBullet : MonoBehaviour
     {
         if(collision.gameObject.tag =="Enemy")
         {
+            print("enemy hit");
             collision.gameObject.GetComponent<IHealth>().TakeDmg();
             Destroy(gameObject);
         }

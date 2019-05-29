@@ -27,12 +27,13 @@ public class DropObjScript : MonoBehaviour
     }
     void DisableStuff()
     {
-        GetComponent<Renderer>().enabled = false;
         if (GetComponent<Collider2D>() != null)        
             GetComponent<Collider2D>().enabled = false;
 
-        if (GetComponent<Collider>() != null)
-            GetComponent<Collider>().enabled = false;
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.enabled = false;
+        }
 
 
     }
