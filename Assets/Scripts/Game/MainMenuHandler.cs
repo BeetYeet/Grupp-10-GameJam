@@ -9,13 +9,13 @@ public class MainMenuHandler : MonoBehaviour
 	public static Difficulty difficulty;
 	public List<AudioClip> audioClips;
 	public TextMeshProUGUI DifficultyText;
-	public GameObject MainMenuPanel, DifficultyPanel;
+	public GameObject MainMenuPanel, DifficultyPanel, CredditsPannel;
 
 	bool IsAudioMute = false;
 
 	private void Start()
 	{
-		
+		CredditsPannel.SetActive(false);
 		MainMenuPanel.SetActive(true);
 		DifficultyPanel.SetActive(false);
 	}
@@ -36,6 +36,11 @@ public class MainMenuHandler : MonoBehaviour
 			case Difficulty.impossible:
 				DifficultyText.text = "the Bermuda Triangle";
 				break;
+		}
+		if (Input.anyKeyDown && !Input.GetMouseButtonDown(0))
+		{
+			
+			StartGame();
 		}
 	}
 
@@ -59,6 +64,18 @@ public class MainMenuHandler : MonoBehaviour
 		DifficultyPanel.SetActive(true);
 		int i = Random.Range(0, audioClips.Count);
 		Playsound.i.SFXcSource.PlayOneShot(audioClips[i]);
+	}
+	public void Creddits()
+	{
+		CredditsPannel.SetActive(true);
+		MainMenuPanel.SetActive(false);
+		DifficultyPanel.SetActive(false);
+	}
+	public void mainmenU()
+	{
+		CredditsPannel.SetActive(false);
+		MainMenuPanel.SetActive(true);
+		DifficultyPanel.SetActive(false);
 	}
 
 	public void DifficultyEasy()
