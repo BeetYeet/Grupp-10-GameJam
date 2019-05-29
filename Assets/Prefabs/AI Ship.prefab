@@ -15337,7 +15337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardVelocity: 0
   rotationVelocity: 0
-  behavor: 2
+  behavor: 0
   sightRange: 20
   aim: 0.4
   movementSpeed: 2.5

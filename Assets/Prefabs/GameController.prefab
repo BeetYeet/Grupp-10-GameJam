@@ -45,6 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b932f3e9925ec4d912eff6c37511f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnChance: 1
+  enemies:
+  - {fileID: 6764534784049492094, guid: 23ce4be2221e4264294e235a2ff03c47, type: 3}
+  - {fileID: 21228152474841762, guid: 9ccbb29598473f445a94416d6da5a23b, type: 3}
+  - {fileID: 1893510026215564054, guid: 7ff9709c60e83c1488426c10e2820525, type: 3}
+  spawnWidth: 150
+  spawnHeight: 150
 --- !u!114 &1126885296629537817
 MonoBehaviour:
   m_ObjectHideFlags: 0
