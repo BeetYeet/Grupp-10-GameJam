@@ -56,6 +56,20 @@ public class EnemyHealth : MonoBehaviour, IHealth
         DisableStuff();
         DropItems();
         Repp.changeRep(scriptebleHealth.repBoast);
+        switch (GetComponent<AIController>().behavor)
+        {
+            case AIController.Behavor.Pasive:
+                StatBlock.merchantsKilled++;
+                break;
+            case AIController.Behavor.Defensive:
+                StatBlock.piratesKilled++;
+                break;
+            case AIController.Behavor.Offecive:
+                StatBlock.navyKilled++;
+                break;
+            default:
+                break;
+        }
         Destroy(gameObject, GetComponent<AudioSource>().clip.length);
     }
     IEnumerator FlashSprite (float resetTime = 0.2f)
@@ -97,6 +111,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<IHealth>().TakeDmg(); //player tar dmg
+            StatBlock.shotsHit++;
             TakeDmg();
         }
     }

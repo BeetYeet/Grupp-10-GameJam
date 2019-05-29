@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     public void TakeDmg(float amount = 1)
     {
-        playerLootBase.AddLoot(-WoodLose(12, 24), -LightLose(4, 8), -HeavyLose(1, 3));
+        playerLootBase.AddLoot(-WoodLose(1, 10), -LightLose(4, 8), -HeavyLose(1, 3));
         playerLootBase.CanShootCheck();
         StartCoroutine(PlayAudio(scriptebleHealth.hurtClip));
         StartCoroutine(FlashSprite());

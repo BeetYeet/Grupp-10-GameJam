@@ -82,12 +82,13 @@ public class GameController: MonoBehaviour
 			pos.x = ( Random.value * 2 - 1 ) * spawnWidth;
 		}
 		dir.Normalize();
-		Debug.Log( dir );
+		//  Debug.Log( dir );
 		Quaternion rot = Quaternion.LookRotation( Vector3.forward, dir );
 		GameObject go = Instantiate( GetEnemy(), pos, rot );
 	}
 	GameObject GetEnemy()
 	{
+        /*
 		List<yoted> probableEnemies = new List<yoted>();
 		foreach ( GameObject go in enemies )
 		{
@@ -123,7 +124,8 @@ public class GameController: MonoBehaviour
 				break;
 			}
 		}
-		return enemy;
+        */
+		return enemies[Random.Range(0,Random.Range(1+(int)(Repp.Rep/ Repp.MaxRep *2f), enemies.Count+1))];
 	}
 }
 class yoted

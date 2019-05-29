@@ -98,26 +98,16 @@ public class UpgradesScript : MonoBehaviour
                 {
                     bool l = true;
                     PlayerAim pa = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>();
-                    foreach (var x in pa.cannonIconParent.transform.GetComponentsInChildren<SpriteRenderer>())
-                    {
-                        if (!x.enabled)
-                        {
-                            x.enabled = true;
-                            break;
-                        }
-                    }
-                    
-                    pa.cannons.ForEach((x) =>
+                    foreach (var x in pa.cannons)
                     {
                         if (!x.gameObject.activeSelf)
                         {
                             l = false;
                             x.gameObject.SetActive(true);
-                            Time.timeScale = 1f;
-                            gameObject.SetActive(false);
-                            return;
+                            break;
                         }
-                    });
+                    }
+                    
                     if (l)
                     {
                         upgrades[ids[buttonNum]].uses = 0;

@@ -56,9 +56,9 @@ public class StatBlock
 			return piratesKilled + merchantsKilled + navyKilled;
 		}
 	}
-	public uint piratesKilled;
-	public uint merchantsKilled;
-	public uint navyKilled;
+	public static uint piratesKilled;
+	public static uint merchantsKilled;
+	public static uint navyKilled;
 	#endregion
 
 	#region resources
@@ -83,7 +83,7 @@ public class StatBlock
 
 	#region shooting
 	public uint shotsFired;
-	public uint shotsHit;
+	public static uint shotsHit;
 	public uint criticalHits;
 	public float totalShotDistance;
 	public float maxShotDistance;
@@ -101,11 +101,11 @@ public class StatBlock
 	{
 		uint _ = 0;
 		_ += stats.woodGathered * 5;
-		_ += stats.merchantsKilled * 300;
-		_ += stats.navyKilled * 600;
-		_ += stats.piratesKilled * 200;
+		_ += StatBlock.merchantsKilled * 300;
+		_ += StatBlock.navyKilled * 600;
+		_ += StatBlock.piratesKilled * 200;
 		_ += (uint) Mathf.FloorToInt( stats.distanceTravelled / 20f );
-		_ += stats.shotsHit * 10;
+		_ += StatBlock.shotsHit * 10;
 		_ += stats.criticalHits * 50;
 		_ += (uint) Mathf.RoundToInt( stats.totalShotDistance * 10 );
 		_ += (uint) Mathf.RoundToInt( stats.maxShotDistance * 300 );

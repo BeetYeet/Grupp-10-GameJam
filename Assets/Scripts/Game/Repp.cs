@@ -7,6 +7,7 @@ public class Repp : MonoBehaviour
 {
     public float difficultyMultiplier = 0.5f;
     public static float Rep { get; private set; }
+    public static float MaxRep { get; private set; }
     public readonly float maxRep = 100;
     public TextMeshProUGUI text;
 
@@ -14,6 +15,7 @@ public class Repp : MonoBehaviour
 
     private void Awake()
     {
+        MaxRep = maxRep;
         text.text = "Rep: " + ((int)Rep).ToString();
         repScript = this;
     }

@@ -19,4 +19,4 @@ MonoBehaviour:
   flashSprite: {fileID: 21300000, guid: ab5a66727d422fb48956219257ff3c0a, type: 3}
   StartHealth: 4
   MaxHealth: 10
-  repBoast: 2.5
+  repBoast: 5

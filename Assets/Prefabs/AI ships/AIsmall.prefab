@@ -4884,6 +4884,7 @@ GameObject:
   - component: {fileID: 1027049650862610368}
   - component: {fileID: 5885548660715385904}
   - component: {fileID: 3838961147897249120}
+  - component: {fileID: 6007204320935568906}
   m_Layer: 8
   m_Name: AIsmall
   m_TagString: Enemy
@@ -4999,6 +5000,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptebleHealth: {fileID: 11400000, guid: b7f57a8112da0e64f86462f33105bc69, type: 2}
   lootDropBase: {fileID: 11400000, guid: 4f55522f58552a44380434b38ed394dd, type: 2}
+--- !u!50 &6007204320935568906
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893510026215564054}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1893510027073809842
 GameObject:
   m_ObjectHideFlags: 0

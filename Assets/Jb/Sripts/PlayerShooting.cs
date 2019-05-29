@@ -9,7 +9,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject lightullet;
     public Transform[] bulletSpawnPos;
     public float lightFireSpeed = 1;
-    float lightNextFire = 0;
+    //float lightNextFire = 0;
 
     public float heavyBulletAmount = 12;
     public float heavyFireSpeed = 6;

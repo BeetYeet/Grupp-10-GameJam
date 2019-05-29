@@ -16,7 +16,7 @@ public class Aimable: MonoBehaviour
 	public Transform hull;
 	Quaternion targetRotation = Quaternion.identity;
 
-	float cannonVelocity = 0f;
+	//float cannonVelocity = 0f;
 	public float rotationSpeed = 5;
 
 	public float acceptableOffset = 15f;

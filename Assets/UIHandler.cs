@@ -20,7 +20,7 @@ public class UIHandler : MonoBehaviour
 	public bool warning;
 	bool activated;
 	bool pauseActive;
-	bool canPause = true;
+	//bool canPause = true;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -30,7 +30,7 @@ public class UIHandler : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		hptext.text = "Hull health:" + PlayerController.curr.PlayerLootBase.totalWood.ToString();
+		hptext.text = "hull:" + PlayerController.curr.PlayerLootBase.totalWood.ToString();
 		if (Input.GetKeyDown(KeyCode.Escape))
 			PauseGame(pauseActive = !pauseActive);
 
@@ -53,14 +53,14 @@ public class UIHandler : MonoBehaviour
 			
 			Time.timeScale = 0;
 			textStuff.Totalscore.text = GameController.scoreTracker.stats.GetScore().ToString("D8");
-			textStuff.merchantscore.text = GameController.scoreTracker.stats.merchantsKilled.ToString("D4");
-			textStuff.piratescore.text = GameController.scoreTracker.stats.piratesKilled.ToString("D4");
-			textStuff.navyscore.text = GameController.scoreTracker.stats.navyKilled.ToString("D4");
+			textStuff.merchantscore.text = StatBlock.merchantsKilled.ToString("D4");
+			textStuff.piratescore.text = StatBlock.piratesKilled.ToString("D4");
+			textStuff.navyscore.text = StatBlock.navyKilled.ToString("D4");
 			textStuff.distancescore.text = string.Format("{0:000000.0}", GameController.scoreTracker.stats.distanceTravelled);
 			textStuff.timescore.text = string.Format("{0:000000.0}", GameController.scoreTracker.stats.lifeTime);
 			textStuff.shotsscore.text = GameController.scoreTracker.stats.shotsFired.ToString();
 			textStuff.Criticalscore.text = GameController.scoreTracker.stats.criticalHits.ToString();
-			textStuff.hitsscore.text = GameController.scoreTracker.stats.shotsHit.ToString();
+			textStuff.hitsscore.text = StatBlock.shotsHit.ToString();
 		}
 	}
 

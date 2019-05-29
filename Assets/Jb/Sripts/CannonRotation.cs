@@ -9,7 +9,7 @@ public class CannonRotation : MonoBehaviour
     public float startRot;
     public float endRot;
     float t = 0;
-    bool fucker = true;
+    //bool fucker = true;
     private void Start()
     {
         endRot = startRot + transform.eulerAngles.z;
