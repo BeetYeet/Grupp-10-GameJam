@@ -15210,6 +15210,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannons:
   - {fileID: 668066247}
+  - {fileID: 281506123}
+  - {fileID: 1535643674}
+  - {fileID: 861381604}
+  - {fileID: 583601447}
+  - {fileID: 2016169791}
   cannonShellPrefab: {fileID: 8854136876744933129, guid: af4af5df7d81b834aa2b88d96b7a203f,
     type: 3}
   cannonCooldown: 2

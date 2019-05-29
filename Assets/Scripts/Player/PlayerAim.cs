@@ -20,7 +20,7 @@ public class PlayerAim: MonoBehaviour
 			bool aimingThere = x.TryAim( pos-x.transform.position );
 			if ( Input.GetMouseButton( 0 ) && aimingThere && x.canFire )
 			{
-				Instantiate( cannonShellPrefab, x.transform.position, x.transform.rotation );
+				GameObject go = Instantiate( cannonShellPrefab, x.transform.position, x.transform.rotation );
 				x.currentCooldown = cannonCooldown - Random.Range( 0, cannonCooldown / 10 );
 			}
 		}
