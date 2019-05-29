@@ -15351,6 +15351,7 @@ MonoBehaviour:
     type: 3}
   cannonCooldown: 2
   range: 4
+  cannonIconParent: {fileID: 0}
 --- !u!50 &5885057495721257769
 Rigidbody2D:
   serializedVersion: 4
