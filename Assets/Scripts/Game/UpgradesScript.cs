@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,6 +42,21 @@ public class UpgradesScript : MonoBehaviour
                 texts[i].text = upgrades[rand].name +
                     (int)(100*values[i]/GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().movementSpeed) + "%";
 
+            } else if (rand == 1)
+            {
+                texts[i].text = upgrades[rand].name +
+                    (int)(100 * values[i] / GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>().cannonCooldown) + "%";
+
+            }
+            else if (rand == 2)
+            {
+                texts[i].text = upgrades[rand].name +
+                    (int)(100 * values[i] / GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>().cannonCooldown) + "%";
+
+            }
+            else if (rand == 3)
+            {
+                texts[i].text = upgrades[rand].name;
             }
             else
             texts[i].text = upgrades[rand].name + values[i];
@@ -56,6 +70,12 @@ public class UpgradesScript : MonoBehaviour
         {
             case 0:
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().movementSpeed += values[buttonNum];
+                break;
+            case 1:
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>().cannonCooldown += values[buttonNum];
+                break;
+            case 2:
+                //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().movementSpeed += values[buttonNum];
                 break;
 
             default:
@@ -94,7 +114,24 @@ public class upgradeProfile
                 name = "Increes speed by ";
                 Value();
                 break;
-
+            case 1:
+                max = 0.5f;
+                min = 0.125f;
+                name = "Increes reload time by ";
+                Value();
+                break;
+            case 2:
+                max = 0.25f;
+                min = 0.1f;
+                name = "Increes range by ";
+                Value();
+                break;
+            case 3:
+                max = 1;
+                min = 1;
+                name = "Add a cannon";
+                ValueInt();
+                break;
 
             default:
                 break;

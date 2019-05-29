@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
 
-    public float speed = 2;
-    public float time = 4, randTime = 1;
+    public float speed = 10;
+    public float range = 4, randRange = 1;
 
     private float deractionX, deractionY;
 
@@ -16,12 +15,12 @@ public class Projectile : MonoBehaviour
         float v = transform.localRotation.z * 0.0174533f;
         deractionX = Mathf.Sin(v) * speed;
         deractionY = Mathf.Cos(v) * speed;
-        //Destroy(gameObject, time + Random.Range(-randTime, randTime));
+        Destroy(gameObject, range + Random.Range(0, randRange));
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        transform.Translate(new Vector3(deractionX, deractionY));
+        transform.Translate(new Vector3(deractionX*Time.deltaTime, deractionY * Time.deltaTime));
     }
 }
