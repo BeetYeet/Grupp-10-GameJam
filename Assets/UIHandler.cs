@@ -96,11 +96,7 @@ public class UIHandler : MonoBehaviour
 
 	public void enableWarning(bool enable)
 	{
-
-		
-		
 			Dangertext.enabled = enable;
-
 	}
 }
 [System.Serializable]
