@@ -6,31 +6,33 @@ using TMPro;
 public class Repp : MonoBehaviour
 {
     public float difficultyMultiplier = 0.5f;
-    public float Rep { get; private set; }
+    public static float Rep { get; private set; }
     public readonly float maxRep = 100;
     public TextMeshProUGUI text;
 
+    private static Repp repScript;
 
     private void Awake()
     {
         text.text = "Rep: " + ((int)Rep).ToString();
+        repScript = this;
     }
 
-    void changeRep(float amount)
+    static void changeRep(float amount)
     {
 
 
-        amount += (float)MainMenuHandler.difficulty * difficultyMultiplier;
+        amount += (float)MainMenuHandler.difficulty * repScript.difficultyMultiplier;
 
         Rep += amount;
-        if (Rep > maxRep)
+        if (Rep > repScript.maxRep)
         {
-            Rep = maxRep;
+            Rep = repScript.maxRep;
         }
         else if (Rep < 0)
         {
             Rep = 0;
         }
-        text.text = "Rep: " + ((int)Rep).ToString();
+        repScript.text.text = "Rep: " + ((int)Rep).ToString();
     }
 }

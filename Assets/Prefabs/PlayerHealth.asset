@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e65601db9d88394a9f8737faca67917, type: 3}
   m_Name: PlayerHealth
   m_EditorClassIdentifier: 
+  difficulty: 0
+  bumpSound: {fileID: 0}
+  boomClip: {fileID: 0}
+  hurtClip: {fileID: 8300000, guid: 144c2140dae9ef54490b7f432e701280, type: 3}
   flashSprite: {fileID: 21300000, guid: 08311c666e7ef27429dbfd5f39fd770e, type: 3}
   StartHealth: 12
   MaxHealth: 0

@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public ScriptebleHealth scriptebleHealth;
     PlayerLootBase playerLootBase;
     PlayerShooting playerShooting;
+    SpriteRenderer[] sprites;
+    Color[] colors;
     public float CurrentHealth => health;
     private void Start()
     {
@@ -17,6 +19,13 @@ public class PlayerHealth : MonoBehaviour, IHealth
         health = scriptebleHealth.StartHealth;
         maxHealth = scriptebleHealth.MaxHealth;
         StartCoroutine(FallApart());
+
+        sprites = GetComponentsInChildren<SpriteRenderer>();
+        colors = new Color[sprites.Length];
+        for (int i = 0; i < colors.Length; i++)
+        {
+            colors[i] = sprites[i].color;
+        }
     }
 
     public void DropItems()
@@ -35,6 +44,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         playerLootBase.AddLoot(-WoodLose(12, 24), -LightLose(4, 8), -HeavyLose(1, 3));
         playerLootBase.CanShootCheck();
         StartCoroutine(PlayAudio(scriptebleHealth.hurtClip));
+        StartCoroutine(FlashSprite());
 
         if (playerLootBase.totalWood <= 0)
             OnDeath();
@@ -45,6 +55,19 @@ public class PlayerHealth : MonoBehaviour, IHealth
         StartCoroutine(PlayAudio(fallApartclip));
         yield return new WaitForSeconds(Random.Range(1f, 4f));
         StartCoroutine(FallApart());
+    }
+
+    IEnumerator FlashSprite(float resetTime = 0.2f)
+    {
+        for (int i = 0; i < colors.Length; i++)
+        {
+            sprites[i].color = Color.Lerp(colors[i], Color.red, 0.4f);
+        }
+        yield return new WaitForSeconds(resetTime);
+        for (int x = 0; x < colors.Length; x++)
+        {
+            sprites[x].color = colors[x];
+        }
     }
 
     IEnumerator PlayAudio(AudioClip clip)

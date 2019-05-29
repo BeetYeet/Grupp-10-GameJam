@@ -23,14 +23,14 @@ public class PlayerLootBase : MonoBehaviour
     }
     public void CanShootCheck()
     {
-        if (lightBullets >= 0)
-           playerShooting.hasLightAmmo = true;
-        else if (lightBullets <= 0)
-            playerShooting.hasLightAmmo = false;
+        //if (lightBullets >= 0)
+        //   playerShooting.hasLightAmmo = true;
+        //else if (lightBullets <= 0)
+        //    playerShooting.hasLightAmmo = false;
 
-        if (heavyBullets >= 0)
-            playerShooting.hasHeavyAmmo = true;
-        else if (heavyBullets <= 0)
-            playerShooting.hasHeavyAmmo = false;
+        //if (heavyBullets >= 0)
+        //    playerShooting.hasHeavyAmmo = true;
+        //else if (heavyBullets <= 0)
+        //    playerShooting.hasHeavyAmmo = false;
     }
 }
