@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71bde1e1255a95b439368917f2b7aa48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultyMultiplier: 0.5
   text: {fileID: 4588910264977640075}
 --- !u!114 &4588910264977640075
 MonoBehaviour:
@@ -679,7 +680,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6595419891499524702}
-  - component: {fileID: 6595419891499524703}
   m_Layer: 5
   m_Name: canonUI
   m_TagString: Untagged
@@ -712,18 +712,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6595419891499524703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6595419891499524689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8d0b84c2fc73f74d81f6d66ce2c04f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6595419891545045997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,7 +1433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6595419891780328680}
   - component: {fileID: 6595419891780328681}
-  - component: {fileID: 6595419891780328694}
+  - component: {fileID: 2057236267589074838}
   m_Layer: 0
   m_Name: Kanon
   m_TagString: Untagged
@@ -1516,7 +1504,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6595419891780328694
+--- !u!114 &2057236267589074838
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1538,7 +1526,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6595419891785548606}
   - component: {fileID: 6595419891785548607}
-  - component: {fileID: 6595419891785548604}
+  - component: {fileID: 2704483750927703412}
   m_Layer: 0
   m_Name: Kanon (4)
   m_TagString: Untagged
@@ -1609,7 +1597,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6595419891785548604
+--- !u!114 &2704483750927703412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1618,7 +1606,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6595419891785548593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f9a4e641eb1da74d832419f5ccae729, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d696bafa81fe7d419fef3afb5fcd0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6595419891791696545
@@ -3554,7 +3542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6595419892478699790}
   - component: {fileID: 6595419892478699791}
-  - component: {fileID: 6595419892478699788}
+  - component: {fileID: 764419139628585762}
   m_Layer: 0
   m_Name: Kanon (2)
   m_TagString: Untagged
@@ -3625,7 +3613,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6595419892478699788
+--- !u!114 &764419139628585762
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3634,7 +3622,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6595419892478699777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5763a5a48e076c24c9a86ba3a688145a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d696bafa81fe7d419fef3afb5fcd0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6595419892534497220
@@ -4982,7 +4970,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6595419893035536503}
   - component: {fileID: 6595419893035536500}
-  - component: {fileID: 6595419893035536501}
+  - component: {fileID: 5163162894166548345}
   m_Layer: 0
   m_Name: Kanon (1)
   m_TagString: Untagged
@@ -5053,7 +5041,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6595419893035536501
+--- !u!114 &5163162894166548345
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5062,7 +5050,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6595419893035536502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7903507baaddf254b830d424d79d8b71, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d696bafa81fe7d419fef3afb5fcd0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6595419893256895584
@@ -5391,7 +5379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6595419893313514302}
   - component: {fileID: 6595419893313514303}
-  - component: {fileID: 6595419893313514300}
+  - component: {fileID: 3684352065865145892}
   m_Layer: 0
   m_Name: Kanon (3)
   m_TagString: Untagged
@@ -5462,7 +5450,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6595419893313514300
+--- !u!114 &3684352065865145892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5471,7 +5459,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6595419893313514289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36ea40c374dbfa4f9a6887f390df6d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d696bafa81fe7d419fef3afb5fcd0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6595419893329461349
@@ -5651,7 +5639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6595419893334469968}
   - component: {fileID: 6595419893334469969}
-  - component: {fileID: 6595419893334469982}
+  - component: {fileID: 4778359350806510995}
   m_Layer: 0
   m_Name: Kanon (5)
   m_TagString: Untagged
@@ -5722,7 +5710,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6595419893334469982
+--- !u!114 &4778359350806510995
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5731,7 +5719,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6595419893334469971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8200445cdde7a8042a7b03bd053fd0c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d696bafa81fe7d419fef3afb5fcd0c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6595419893383946299
