@@ -6,7 +6,9 @@ public class PlayerController: ControlerBase
 {
 	public CameraFollow cameraFollow;
 	public static PlayerController curr;
+	[HideInInspector]
 	public PlayerHealth PlayerHealth;
+	[HideInInspector]
 	public PlayerLootBase PlayerLootBase;
 
 	public float movementSpeed = 1f;
