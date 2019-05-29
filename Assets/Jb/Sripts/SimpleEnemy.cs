@@ -10,6 +10,7 @@ public class SimpleEnemy : MonoBehaviour
     private void Start()
     {
         StartCoroutine(changeDir());
+
     }
     private void Update()
     {
@@ -17,6 +18,7 @@ public class SimpleEnemy : MonoBehaviour
     }
     IEnumerator changeDir()
     {
+
         endRot = transform.eulerAngles.z + enemyMoveStats.anglesPerChange;
         startRot = transform.eulerAngles.z;
         float t = 0;

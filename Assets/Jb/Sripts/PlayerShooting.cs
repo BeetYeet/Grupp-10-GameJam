@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
+    public AudioClip heavyShootSound;
     public GameObject heavyBullet;
     public GameObject lightullet;
     public Transform[] bulletSpawnPos;
@@ -18,25 +19,27 @@ public class PlayerShooting : MonoBehaviour
     public bool hasHeavyAmmo = true;
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            for (int i = 0; i < bulletSpawnPos.Length; i++)
-            {
-                bulletSpawnPos[i].gameObject.SetActive(true);
-            }
-        }
-        if (Input.GetMouseButtonUp(0) && hasLightAmmo && lightNextFire <= Time.time)
-        {
-            lightNextFire = Time.time + lightFireSpeed;
-            ShootLight(lightullet);
-            for (int i = 0; i < bulletSpawnPos.Length; i++)
-            {
-                bulletSpawnPos[i].gameObject.SetActive(false);
-            }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    for (int i = 0; i < bulletSpawnPos.Length; i++)
+        //    {
+        //        bulletSpawnPos[i].gameObject.SetActive(true);
+        //    }
+        //}
+        //if (Input.GetMouseButtonUp(0) && hasLightAmmo && lightNextFire <= Time.time)
+        //{
+        //    lightNextFire = Time.time + lightFireSpeed;
+        //    ShootLight(lightullet);
+        //    for (int i = 0; i < bulletSpawnPos.Length; i++)
+        //    {
+        //        bulletSpawnPos[i].gameObject.SetActive(false);
+        //    }
 
-        }
+        //}
         if(Input.GetKeyDown(KeyCode.R) && hasHeavyAmmo && heavyNextFire <= Time.time)
         {
+            GetComponent<AudioSource>().clip = heavyShootSound;
+            GetComponent<AudioSource>().Play();
             heavyNextFire = Time.time + heavyFireSpeed;
             ShootHeavy(heavyBullet, heavyBulletAmount);
         }

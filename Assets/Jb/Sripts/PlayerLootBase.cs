@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerLootBase : MonoBehaviour
 {
     //rördu dör du
+    [HideInInspector]
+    public float maxWood = 700;
     public float totalWood = 0;
     public float lightBullets = 0;
     public float heavyBullets = 0;

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9e8fd0a863f084aba4dcddba9fb469, type: 3}
   m_Name: AroundPlayerTest
   m_EditorClassIdentifier: 
-  speedForward: 5
+  speedForward: 2
   rotSpeed: 25
   changeDirTime: 0
   anglesPerChange: -90

@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8854136876744933131}
   - component: {fileID: 8854136876744933128}
-  m_Layer: 8
+  - component: {fileID: 1703971140040523613}
+  - component: {fileID: -5331909560724327751}
+  - component: {fileID: -1473258942688092012}
+  m_Layer: 10
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +43,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8854136876744933129}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 511f3e3a49648cb4cb670481db5a7099, type: 3}
   m_Name: 
@@ -48,6 +51,57 @@ MonoBehaviour:
   speed: 0.1
   time: 4
   randTime: 1
+--- !u!114 &1703971140040523613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854136876744933129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8b11ac156d8b9488974d5878b583ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 5
+  extraSpeed: 0
+--- !u!50 &-5331909560724327751
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854136876744933129}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &-1473258942688092012
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8854136876744933129}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &8854136878258880751
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8854136878258880750}
   - component: {fileID: 8854136878258880753}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8854136878477529753}
   - component: {fileID: 8854136878477529752}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ScriptebleHealth : ScriptableObject
 {
+    public AudioClip bumpSound;
+    public AudioClip boomClip;
+    public AudioClip hurtClip;
     public Sprite flashSprite;
     public float StartHealth;
     public float MaxHealth;
