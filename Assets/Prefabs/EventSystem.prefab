@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4465382362078040579
 Transform:
   m_ObjectHideFlags: 0
@@ -81,6 +81,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Deathscreen: {fileID: 0}
   PauseScreen: {fileID: 0}
+  hptext: {fileID: 0}
+  Dangertext: {fileID: 0}
   textStuff:
     Totalscore: {fileID: 0}
     merchantscore: {fileID: 0}
@@ -91,3 +93,5 @@ MonoBehaviour:
     shotsscore: {fileID: 0}
     hitsscore: {fileID: 0}
     Criticalscore: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 519b94fb30c37e742be8bada5c0a4f06, type: 2}
+  warning: 0

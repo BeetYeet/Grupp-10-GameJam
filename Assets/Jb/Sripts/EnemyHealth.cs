@@ -9,14 +9,18 @@ public class EnemyHealth : MonoBehaviour, IHealth
     private float health;
     public float CurrentHealth => health;
     private SpriteRenderer rend;
-    private Sprite flashSprite;
-    private Sprite startSprite;
+    private Color[] colors;
+    SpriteRenderer[] sprites;
     void Start()
     {
         health = scriptebleHealth.StartHealth;
         rend = GetComponent<SpriteRenderer>();
-        flashSprite = scriptebleHealth.flashSprite;
-        startSprite = rend.sprite;
+        sprites =  GetComponentsInChildren<SpriteRenderer>();
+        colors = new Color[sprites.Length];
+        for (int i = 0; i < colors.Length; i++)
+        {
+            colors[i] = sprites[i].color;
+        }
     }
 
 
@@ -30,7 +34,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         GameObject enemyDrop = Instantiate(lootDropBase.dropObj, transform.position, lootDropBase.dropObj.transform.rotation);
         enemyDrop.GetComponent<DropObjScript>().w = wood;
         enemyDrop.GetComponent<DropObjScript>().l = lightBullets;
-        enemyDrop.GetComponent<DropObjScript>().h = wood;
+        enemyDrop.GetComponent<DropObjScript>().h = heavyBullets;
     }
 
     public void TakeDmg(float amount = 1)
@@ -39,7 +43,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
             amount = 1;
         //reputation.reputatuion += (int)scriptebleHealth.repBoast;
         StartCoroutine(PlayAudio(scriptebleHealth.hurtClip));
-        StartCoroutine(FlashSprite(flashSprite));
+        StartCoroutine(FlashSprite());
         health -= amount;
         if (health <= 0)
         {
@@ -53,11 +57,17 @@ public class EnemyHealth : MonoBehaviour, IHealth
         DropItems();
         Destroy(gameObject, GetComponent<AudioSource>().clip.length);
     }
-    IEnumerator FlashSprite (Sprite flashSprite, float resetTime = 0.2f)
+    IEnumerator FlashSprite (float resetTime = 0.2f)
     {
-        rend.sprite = flashSprite;
+        for (int i = 0; i < colors.Length; i++)
+        {
+            sprites[i].color = Color.Lerp(colors[i], Color.red, 0.4f);
+        }
         yield return new WaitForSeconds(resetTime);
-        rend.sprite = startSprite;
+        for (int x = 0; x < colors.Length; x++)
+        {
+            sprites[x].color = colors[x];
+        }
     }
     IEnumerator PlayAudio(AudioClip clip)
     {
@@ -85,8 +95,6 @@ public class EnemyHealth : MonoBehaviour, IHealth
     {
         if(collision.gameObject.tag == "Player")
         {
-            //StartCoroutine(PlayAudio(scriptebleHealth.bumpSound));
-            //bump
             collision.gameObject.GetComponent<IHealth>().TakeDmg(); //player tar dmg
             TakeDmg();
         }

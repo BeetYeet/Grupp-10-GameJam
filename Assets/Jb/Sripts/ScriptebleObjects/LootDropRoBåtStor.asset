@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff9e8fd0a863f084aba4dcddba9fb469, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: d5db1270d151028488a2b635973724cc, type: 3}
+  m_Name: "LootDropRoB\xE5tStor"
   m_EditorClassIdentifier: 
-  speedForward: 2
-  rotSpeed: 3
-  changeDirTime: 1
-  anglesPerChange: 20
+  dropObj: {fileID: 2761850898134678690, guid: 13508e74f16ab8541bb65a8f76ebedf2, type: 3}
+  amountOfWoodDrop: 100
+  amountOflightBulletDrop: 141
+  amountOfHeavyBulletDrop: 6

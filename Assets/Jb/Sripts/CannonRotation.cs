@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CannonRotation : MonoBehaviour
 {
-    [Range(0,3)]
+    [Range(0, 3)]
     public float speed = 2;
     public float startRot;
     public float endRot;
@@ -27,19 +27,17 @@ public class CannonRotation : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetMouseButton(0))
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, Mathf.Lerp(startRot, endRot, t));
-            t += speed * Time.deltaTime;
 
-            if (t >= 1)
-            {
-                float temp = startRot;
-                startRot = endRot;
-                endRot = temp;
-                t = 0;
-                //Destroy(clone);
-            }
+        transform.localRotation = Quaternion.Euler(0, 0, Mathf.Lerp(startRot, endRot, t));
+        t += speed * Time.deltaTime;
+
+        if (t >= 1)
+        {
+            float temp = startRot;
+            startRot = endRot;
+            endRot = temp;
+            t = 0;
+            //Destroy(clone);
         }
     }
 }

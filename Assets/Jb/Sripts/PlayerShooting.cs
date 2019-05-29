@@ -16,27 +16,9 @@ public class PlayerShooting : MonoBehaviour
     float heavyNextFire = 0;
 
     public bool hasLightAmmo = true;
-    public bool hasHeavyAmmo = true;
     private void Update()
-    {
-        //if(Input.GetMouseButtonDown(0))
-        //{
-        //    for (int i = 0; i < bulletSpawnPos.Length; i++)
-        //    {
-        //        bulletSpawnPos[i].gameObject.SetActive(true);
-        //    }
-        //}
-        //if (Input.GetMouseButtonUp(0) && hasLightAmmo && lightNextFire <= Time.time)
-        //{
-        //    lightNextFire = Time.time + lightFireSpeed;
-        //    ShootLight(lightullet);
-        //    for (int i = 0; i < bulletSpawnPos.Length; i++)
-        //    {
-        //        bulletSpawnPos[i].gameObject.SetActive(false);
-        //    }
-
-        //}
-        if(Input.GetKeyDown(KeyCode.R) && hasHeavyAmmo && heavyNextFire <= Time.time)
+    {       
+        if(Input.GetKeyDown(KeyCode.R) && heavyNextFire <= Time.time)
         {
             GetComponent<AudioSource>().clip = heavyShootSound;
             GetComponent<AudioSource>().Play();

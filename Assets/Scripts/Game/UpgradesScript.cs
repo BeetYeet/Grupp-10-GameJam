@@ -98,6 +98,15 @@ public class UpgradesScript : MonoBehaviour
                 {
                     bool l = true;
                     PlayerAim pa = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAim>();
+                    foreach (var x in pa.cannonIconParent.transform.GetComponentsInChildren<Image>())
+                    {
+                        if (!x.enabled)
+                        {
+                            x.enabled = true;
+                            break;
+                        }
+                    }
+                    
                     pa.cannons.ForEach((x) =>
                     {
                         if (!x.gameObject.activeSelf)
