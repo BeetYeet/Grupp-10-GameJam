@@ -17,7 +17,7 @@ public class AIAim: MonoBehaviour
 		cannons.ForEach(
 		( x ) =>
 		{
-			bool couldAim = x.TryAim( ( target.position - transform.position ).normalized );
+			bool couldAim = x.TryAim( ( target.position - x.transform.position ).normalized );
 			if ( dist < distance && couldAim && x.canFire )
 			{
 				Instantiate( cannonShellPrefab, x.transform.position, x.transform.rotation );
